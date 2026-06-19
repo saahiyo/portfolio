@@ -169,7 +169,7 @@ export function Hero() {
           </div>
 
           {/* Interactive Mockup Widget */}
-          <div className="mt-16 overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 max-w-3xl mx-auto text-left animate-fade-in">
+          <div className="hidden sm:block mt-16 overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 max-w-3xl mx-auto text-left animate-fade-in">
             {/* Mockup Title bar */}
             <div className="hidden sm:flex h-9 items-center justify-between border-b border-border-muted px-4 bg-background/35">
               <div className="flex items-center gap-1.5">
