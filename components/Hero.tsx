@@ -81,13 +81,19 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32 bg-background">
+      {/* Background Grid Pattern */}
+      <div 
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] bg-center [mask-image:radial-gradient(ellipse_60%_50%_at_50%_15%,#000_20%,transparent_100%)]" 
+      />
+
       {/* Soft spotlight radial backdrop */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 rounded-full opacity-30 blur-[130px] transition-opacity duration-fast"
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[1000px] -translate-x-1/2 rounded-full opacity-40 blur-[130px] transition-opacity duration-fast"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(255, 255, 255, 0.12), transparent)",
+            "radial-gradient(closest-side, rgba(120, 119, 198, 0.12), rgba(255, 255, 255, 0.04), transparent)",
         }}
       />
 
