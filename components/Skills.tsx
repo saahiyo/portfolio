@@ -39,7 +39,7 @@ const skillGroups: SkillGroup[] = [
 
 export function Skills() {
   return (
-    <section id="skills" className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28 bg-background">
+    <section id="skills" className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28">
       <Container>
         <SectionHeading
           eyebrow="03 — Skills"

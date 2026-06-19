@@ -77,7 +77,7 @@ export default async function ProjectPage({ params }: Props) {
   const prev = projects[(idx - 1 + projects.length) % projects.length];
 
   return (
-    <article className="pt-28 pb-24 bg-background">
+    <article className="pt-28 pb-24">
       <Container>
         <Link
           href="/projects"

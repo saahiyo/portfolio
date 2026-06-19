@@ -23,7 +23,7 @@ export default function ProjectsPage() {
   const categories = Array.from(new Set(projects.map((p) => p.category)));
 
   return (
-    <div className="pt-28 pb-24 bg-background">
+    <div className="pt-28 pb-24">
       <Container>
         <Link
           href="/"

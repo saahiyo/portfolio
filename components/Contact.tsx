@@ -32,7 +32,7 @@ const channels = [
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28 bg-background">
+    <section id="contact" className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28">
       <Container>
         <div className="overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3">
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-2 lg:gap-16">

@@ -8,7 +8,7 @@ export function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28 bg-background"
+      className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28"
     >
       <Container>
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">

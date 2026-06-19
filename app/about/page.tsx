@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="border-b border-border-muted pt-28 pb-6 bg-background">
+      <div className="border-b border-border-muted pt-28 pb-6">
         <Container>
           <Link
             href="/"

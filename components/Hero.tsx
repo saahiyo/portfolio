@@ -80,11 +80,11 @@ export function Hero() {
   const data = mockupProjects[activeProject];
 
   return (
-    <section id="top" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32 bg-background">
+    <section id="top" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
       {/* Background Grid Pattern */}
       <div 
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:64px_64px] bg-center [mask-image:radial-gradient(ellipse_60%_50%_at_50%_15%,#000_20%,transparent_100%)]" 
+        className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:64px_64px] bg-center [mask-image:radial-gradient(ellipse_60%_50%_at_50%_15%,#000_20%,transparent_100%)]" 
       />
 
       {/* Soft spotlight radial backdrop */}

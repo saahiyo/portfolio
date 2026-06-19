@@ -39,7 +39,7 @@ export function Timeline() {
   return (
     <section
       id="experience"
-      className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28 bg-background"
+      className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28"
     >
       <Container>
         <SectionHeading
