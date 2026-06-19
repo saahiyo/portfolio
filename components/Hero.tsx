@@ -124,50 +124,54 @@ export function Hero() {
             services. Designed for consistency, accessibility, and high performance.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-xs sm:max-w-none mx-auto w-full">
-            {/* Primary Action */}
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
-            >
-              View Projects
-              <ArrowRightIcon className="h-3.5 w-3.5" />
-            </Link>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-sm sm:max-w-none mx-auto w-full">
+            {/* Primary Action - Row 1 on mobile */}
+            <div className="w-full sm:w-auto flex justify-center">
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
+              >
+                View Projects
+                <ArrowRightIcon className="h-3.5 w-3.5" />
+              </Link>
+            </div>
             
-            {/* Secondary Actions */}
-            <Link
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
-            >
-              <GitHubIcon className="h-3.5 w-3.5" />
-              GitHub
-            </Link>
-            
-            <Link
-              href={siteConfig.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
-            >
-              <LinkedInIcon className="h-3.5 w-3.5" />
-              LinkedIn
-            </Link>
-            
-            <Link
-              href={siteConfig.resume}
-              className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
-            >
-              <DownloadIcon className="h-3.5 w-3.5" />
-              Resume
-            </Link>
+            {/* Secondary Actions - Row 2 on mobile */}
+            <div className="flex flex-row items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto">
+              <Link
+                href={siteConfig.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-2 text-[10px] sm:text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
+              >
+                <GitHubIcon className="h-3.5 w-3.5" />
+                GitHub
+              </Link>
+              
+              <Link
+                href={siteConfig.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-2 text-[10px] sm:text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
+              >
+                <LinkedInIcon className="h-3.5 w-3.5" />
+                LinkedIn
+              </Link>
+              
+              <Link
+                href={siteConfig.resume}
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-2 text-[10px] sm:text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
+              >
+                <DownloadIcon className="h-3.5 w-3.5" />
+                Resume
+              </Link>
+            </div>
           </div>
 
           {/* Interactive Mockup Widget */}
           <div className="mt-16 overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 max-w-3xl mx-auto text-left animate-fade-in">
             {/* Mockup Title bar */}
-            <div className="flex h-9 items-center justify-between border-b border-border-muted px-4 bg-background/35">
+            <div className="hidden sm:flex h-9 items-center justify-between border-b border-border-muted px-4 bg-background/35">
               <div className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-border-muted border border-border-muted opacity-80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-border-muted border border-border-muted opacity-80" />
