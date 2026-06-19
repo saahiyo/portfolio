@@ -142,7 +142,7 @@ export function Hero() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-2 text-[10px] sm:text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
               >
                 <GitHubIcon className="h-3.5 w-3.5" />
                 GitHub
@@ -152,7 +152,7 @@ export function Hero() {
                 href={siteConfig.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-2 text-[10px] sm:text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
               >
                 <LinkedInIcon className="h-3.5 w-3.5" />
                 LinkedIn
@@ -160,7 +160,7 @@ export function Hero() {
               
               <Link
                 href={siteConfig.resume}
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-2 text-[10px] sm:text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
+                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
               >
                 <DownloadIcon className="h-3.5 w-3.5" />
                 Resume

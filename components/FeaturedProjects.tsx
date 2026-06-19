@@ -19,7 +19,7 @@ export function FeaturedProjects() {
           />
           <Link
             href="/projects"
-            className="inline-flex shrink-0 items-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3 py-1.5 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-4 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
           >
             All projects
             <ArrowRightIcon className="h-3.5 w-3.5" />
