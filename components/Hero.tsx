@@ -94,7 +94,7 @@ export function Hero() {
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           {/* Header pill link and Availability badge */}
-          <div className="mb-6 inline-flex flex-wrap items-center justify-center gap-2">
+          <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-2 text-center">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
@@ -124,11 +124,11 @@ export function Hero() {
             services. Designed for consistency, accessibility, and high performance.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-xs sm:max-w-none mx-auto w-full">
             {/* Primary Action */}
             <Link
               href="/projects"
-              className="inline-flex items-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
             >
               View Projects
               <ArrowRightIcon className="h-3.5 w-3.5" />
@@ -139,7 +139,7 @@ export function Hero() {
               href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
             >
               <GitHubIcon className="h-3.5 w-3.5" />
               GitHub
@@ -149,7 +149,7 @@ export function Hero() {
               href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
             >
               <LinkedInIcon className="h-3.5 w-3.5" />
               LinkedIn
@@ -157,7 +157,7 @@ export function Hero() {
             
             <Link
               href={siteConfig.resume}
-              className="inline-flex items-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
             >
               <DownloadIcon className="h-3.5 w-3.5" />
               Resume
@@ -178,15 +178,15 @@ export function Hero() {
             </div>
 
             {/* Mockup Content Grid */}
-            <div className="grid grid-cols-[140px_1fr] sm:grid-cols-[180px_1fr] h-[250px] overflow-hidden">
+            <div className="flex flex-col sm:grid sm:grid-cols-[180px_1fr] sm:h-[260px] overflow-hidden">
               {/* Sidebar */}
-              <div className="border-r border-border-muted p-2.5 flex flex-col gap-1 text-left bg-background/25">
-                <span className="text-[9px] uppercase font-mono tracking-wider text-text-tertiary px-2 py-1 mb-1">Active Projects</span>
+              <div className="border-b sm:border-b-0 sm:border-r border-border-muted p-2 flex flex-row sm:flex-col overflow-x-auto sm:overflow-visible gap-1 text-left bg-background/25">
+                <span className="hidden sm:block text-[9px] uppercase font-mono tracking-wider text-text-tertiary px-2 py-1 mb-1">Active Projects</span>
                 
                 <button
                   type="button"
                   onClick={() => setActiveProject("teraplay")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
+                  className={`rounded px-2.5 py-1.5 text-xs text-center sm:text-left whitespace-nowrap transition-colors duration-fast ${
                     activeProject === "teraplay"
                       ? "bg-surface-strong text-background font-medium"
                       : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
@@ -198,7 +198,7 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={() => setActiveProject("bca-notes")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
+                  className={`rounded px-2.5 py-1.5 text-xs text-center sm:text-left whitespace-nowrap transition-colors duration-fast ${
                     activeProject === "bca-notes"
                       ? "bg-surface-strong text-background font-medium"
                       : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
@@ -210,7 +210,7 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={() => setActiveProject("terabox-gateway")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
+                  className={`rounded px-2.5 py-1.5 text-xs text-center sm:text-left whitespace-nowrap transition-colors duration-fast ${
                     activeProject === "terabox-gateway"
                       ? "bg-surface-strong text-background font-medium"
                       : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
@@ -221,7 +221,7 @@ export function Hero() {
               </div>
 
               {/* Console logs view */}
-              <div className="p-4 flex flex-col justify-between overflow-hidden bg-background/10">
+              <div className="p-4 flex flex-col justify-between overflow-hidden bg-background/10 h-[240px] sm:h-auto">
                 <div className="overflow-y-auto">
                   <div className="font-mono text-[10px] text-text-tertiary">{data.path}</div>
                   <div className="font-mono text-[10px] text-emerald-500 mt-0.5">Uptime: 100% · Status: Active</div>
@@ -231,7 +231,7 @@ export function Hero() {
                 </div>
                 
                 {/* Console footer stats */}
-                <div className="text-[10px] text-text-tertiary border-t border-border-muted pt-2 flex justify-between font-sans">
+                <div className="text-[10px] text-text-tertiary border-t border-border-muted pt-2 flex flex-col sm:flex-row sm:justify-between gap-1.5 sm:gap-0 font-sans">
                   <span>{data.statLabel}: <strong className="text-text-primary font-normal">{data.statVal}</strong></span>
                   <span>{data.speedLabel}: <strong className="text-emerald-400 font-normal">{data.speedVal}</strong></span>
                 </div>
