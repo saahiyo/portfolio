@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="sans-serif">
+  <rect width="1600" height="1000" fill="#0B0F19"/>
+  <defs>
+      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0V40" fill="none" stroke="#1F2937" stroke-opacity="0.4" stroke-width="1"/>
+      </pattern>
+      <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="panelg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#161f31"/>
+        <stop offset="100%" stop-color="#111827"/>
+      </linearGradient>
+    </defs>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)" opacity="0.6"/>
+  <!-- left text block -->
+  <g transform="translate(90,150)">
+    <rect x="0" y="0" width="120" height="34" rx="17" fill="#111827" stroke="#1F2937"/>
+    <text x="60" y="23" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">React</text>
+    <text x="0" y="110" font-size="76" font-weight="700" fill="#F9FAFB">TeraPlay</text>
+    <text x="0" y="165" font-size="30" fill="#9CA3AF">Streaming frontend</text>
+    <g transform="translate(0,215)"><g transform="translate(0,0)"><rect width="57.0" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="28.5" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">React</text></g><g transform="translate(65.0,0)"><rect width="48.8" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="24.4" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">Vite</text></g><g transform="translate(121.8,0)"><rect width="65.19999999999999" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="32.599999999999994" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">HLS.js</text></g><g transform="translate(195.0,0)"><rect width="81.6" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="40.8" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">Tailwind</text></g></g>
+  </g>
+  <!-- mockup window -->
+  <g transform="translate(760,230)">
+    <g><rect x="0" y="0" width="720" height="36" rx="10 10 0 0" fill="#161f31" /><circle cx="18" cy="18" r="5" fill="#ef4444" opacity="0.8"/><circle cx="36" cy="18" r="5" fill="#eab308" opacity="0.8"/><circle cx="54" cy="18" r="5" fill="#22c55e" opacity="0.8"/><rect x="0" y="36" width="720" height="524" rx="0 0 10 10" fill="#111827" /><rect x="0" y="36" width="720" height="1" fill="#1F2937"/><rect x="0" y="36" width="720" height="400" fill="#000"/><polygon points="320,200 400,250 320,300" fill="#3B82F6" opacity="0.9"/><rect x="30" y="460" width="660" height="6" rx="3" fill="#1F2937"/><rect x="30" y="460" width="240" height="6" rx="3" fill="#3B82F6"/><circle cx="40" cy="500" r="10" fill="#9CA3AF" opacity="0.6"/><circle cx="80" cy="500" r="10" fill="#9CA3AF" opacity="0.6"/><circle cx="560" cy="500" r="10" fill="#9CA3AF" opacity="0.6"/><circle cx="610" cy="500" r="10" fill="#9CA3AF" opacity="0.6"/><circle cx="660" cy="500" r="10" fill="#9CA3AF" opacity="0.6"/></g>
+  </g>
+</svg>
