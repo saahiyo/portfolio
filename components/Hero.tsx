@@ -184,13 +184,13 @@ export function Hero() {
             {/* Mockup Content Grid */}
             <div className="flex flex-col sm:grid sm:grid-cols-[180px_1fr] sm:h-[260px] overflow-hidden">
               {/* Sidebar */}
-              <div className="border-b sm:border-b-0 sm:border-r border-border-muted p-2 flex flex-row sm:flex-col overflow-x-auto sm:overflow-visible gap-1 text-left bg-background/25">
-                <span className="hidden sm:block text-[9px] uppercase font-mono tracking-wider text-text-tertiary px-2 py-1 mb-1">Active Projects</span>
+              <div className="hidden sm:flex border-r border-border-muted p-2.5 flex-col gap-1 text-left bg-background/25">
+                <span className="text-[9px] uppercase font-mono tracking-wider text-text-tertiary px-2 py-1 mb-1">Active Projects</span>
                 
                 <button
                   type="button"
                   onClick={() => setActiveProject("teraplay")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-center sm:text-left whitespace-nowrap transition-colors duration-fast ${
+                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
                     activeProject === "teraplay"
                       ? "bg-surface-strong text-background font-medium"
                       : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
@@ -202,7 +202,7 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={() => setActiveProject("bca-notes")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-center sm:text-left whitespace-nowrap transition-colors duration-fast ${
+                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
                     activeProject === "bca-notes"
                       ? "bg-surface-strong text-background font-medium"
                       : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
@@ -214,7 +214,7 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={() => setActiveProject("terabox-gateway")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-center sm:text-left whitespace-nowrap transition-colors duration-fast ${
+                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
                     activeProject === "terabox-gateway"
                       ? "bg-surface-strong text-background font-medium"
                       : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
