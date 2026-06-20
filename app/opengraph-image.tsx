@@ -16,9 +16,9 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          backgroundColor: "#0B0F19",
+          backgroundColor: "#0d0d0d",
           backgroundImage:
-            "radial-gradient(circle at 80% 0%, rgba(59,130,246,0.25), transparent 55%), linear-gradient(to right, rgba(31,41,55,0.6) 1px, transparent 1px), linear-gradient(to bottom, rgba(31,41,55,0.6) 1px, transparent 1px)",
+            "radial-gradient(circle at 80% 0%, rgba(255,255,255,0.1), transparent 55%), linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)",
           backgroundSize: "100% 100%, 60px 60px, 60px 60px",
           color: "#F9FAFB",
           fontFamily: "sans-serif",
@@ -33,9 +33,9 @@ export default function OpengraphImage() {
               width: 56,
               height: 56,
               borderRadius: 14,
-              border: "1px solid #1F2937",
-              backgroundColor: "#111827",
-              color: "#3B82F6",
+              border: "1px solid rgba(255,255,255,0.08)",
+              backgroundColor: "#161616",
+              color: "#ffffff",
               fontSize: 24,
               fontWeight: 700,
             }}
@@ -49,7 +49,7 @@ export default function OpengraphImage() {
           <div
             style={{
               fontSize: 30,
-              color: "#3B82F6",
+              color: "#9CA3AF",
               fontWeight: 600,
               letterSpacing: 1,
             }}
@@ -66,7 +66,7 @@ export default function OpengraphImage() {
           >
             Building web platforms, APIs &amp; cloud-hosted apps.
           </div>
-          <div style={{ fontSize: 26, color: "#9CA3AF", maxWidth: 820 }}>
+          <div style={{ fontSize: 26, color: "#6b7280", maxWidth: 820 }}>
             {siteConfig.url.replace("https://", "")}
           </div>
         </div>
