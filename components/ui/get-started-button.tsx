@@ -1,18 +1,23 @@
+"use client";
+
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function GetStartedButton() {
   return (
-    <Button className="group relative overflow-hidden" size="lg" asChild>
-      <Link href="/projects" className="w-full">
-        <span className="mr-8 transition-opacity duration-500 group-hover:opacity-0">
-          View Projects
-        </span>
-        <i className="absolute right-1 top-1 bottom-1 rounded-sm z-10 grid w-1/4 place-items-center transition-all duration-500 bg-background/15 group-hover:w-[calc(100%-0.5rem)] group-active:scale-95 text-current not-italic">
-          <ChevronRight size={16} strokeWidth={2} aria-hidden="true" />
-        </i>
-      </Link>
-    </Button>
+    <Link
+      href="/projects"
+      className={cn(
+        "group relative inline-flex items-center justify-center overflow-hidden rounded bg-text-primary text-background font-sans font-semibold text-xs h-[34px] pl-4 pr-9 transition-all duration-fast hover:scale-[1.01] active:scale-[0.99] w-full sm:w-auto shadow-2"
+      )}
+    >
+      <span className="transition-opacity duration-500 group-hover:opacity-0">
+        View Projects
+      </span>
+      <i className="absolute right-0.5 top-0.5 bottom-0.5 rounded-[3px] z-10 grid w-[26px] place-items-center transition-all duration-500 bg-background/15 group-hover:w-[calc(100%-0.25rem)] group-active:scale-95 text-current not-italic">
+        <ChevronRight size={14} strokeWidth={2.5} aria-hidden="true" />
+      </i>
+    </Link>
   );
 }
