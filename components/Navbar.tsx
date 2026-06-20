@@ -22,6 +22,21 @@ export function Navbar() {
     };
   }, [open]);
 
+  // Close mobile menu on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+    if (open) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
   // Close mobile menu on route change only
   useEffect(() => {
     if (prevPathname.current !== pathname) {
@@ -75,7 +90,11 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed inset-x-0 top-0 z-50 border-b border-border-muted bg-background/95 backdrop-blur-md"
+        className={`fixed inset-x-0 top-0 transition-colors duration-fast border-b ${
+          open
+            ? "z-[60] border-transparent bg-transparent"
+            : "z-50 border-border-muted bg-background/95 backdrop-blur-md"
+        }`}
       >
         <Container>
           <nav className="flex h-16 items-center justify-between">
@@ -198,7 +217,10 @@ export function Navbar() {
             exit="hidden"
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-background/98 backdrop-blur-xl" />
+            <div
+              className="absolute inset-0 bg-background/98 backdrop-blur-xl cursor-pointer"
+              onClick={closeMenu}
+            />
 
             {/* Menu content */}
             <motion.div
