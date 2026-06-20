@@ -13,6 +13,7 @@ import {
 import { FadeIn, StaggerContainer } from "@/components/Animate";
 import { TextMorph } from "@/components/TextMorph";
 import { GetStartedButton } from "@/components/ui/get-started-button";
+import { TextReveal } from "@/components/ui/cascade-text";
 
 const heroRoles = [
   "Web Platforms",
@@ -58,9 +59,11 @@ export function Hero() {
             </FadeIn>
 
             <FadeIn direction="up" distance={20}>
-              <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl">
-                Shakir Ansari
-              </h1>
+              <TextReveal
+                text="Shakir Ansari"
+                as="h1"
+                className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl"
+              />
             </FadeIn>
 
             <FadeIn direction="up" distance={15}>
