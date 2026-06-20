@@ -1,3 +1,6 @@
+"use client";
+
+import { ViewTransition } from "react";
 import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import { GitHubIcon, ExternalLinkIcon, ArrowUpRightIcon } from "@/components/Icons";
@@ -10,13 +13,15 @@ export function ProjectCard({ project }: { project: Project }) {
         className="relative block aspect-[16/10] overflow-hidden border-b border-border-muted bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-[-2px]"
         aria-label={`View ${project.name} case study`}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={project.cardImage}
-          alt={`${project.name} preview`}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-fast group-hover:scale-[1.01]"
-        />
+        <ViewTransition name={`project-image-${project.slug}`}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={project.cardImage}
+            alt={`${project.name} preview`}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-fast group-hover:scale-[1.01]"
+          />
+        </ViewTransition>
         <span className="absolute left-2.5 top-2.5 rounded border border-border-muted bg-background/80 px-2 py-0.5 text-[10px] font-medium text-text-secondary backdrop-blur">
           {project.category}
         </span>
@@ -25,9 +30,11 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h3 className="text-sm font-semibold text-text-primary">
-              {project.name}
-            </h3>
+            <ViewTransition name={`project-title-${project.slug}`}>
+              <h3 className="text-sm font-semibold text-text-primary">
+                {project.name}
+              </h3>
+            </ViewTransition>
             <p className="mt-0.5 text-[11px] text-text-tertiary">{project.tagline}</p>
           </div>
           <Link

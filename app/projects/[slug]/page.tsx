@@ -12,6 +12,7 @@ import {
   LayersIcon,
 } from "@/components/Icons";
 import { FadeIn, StaggerContainer } from "@/components/Animate";
+import { SharedImage, SharedTitle } from "@/components/SharedTransitionElements";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -102,9 +103,9 @@ export default async function ProjectPage({ params }: Props) {
                 </span>
                 <span className="font-mono text-xs text-text-tertiary">{project.year}</span>
               </div>
-              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+              <SharedTitle slug={project.slug}>
                 {project.name}
-              </h1>
+              </SharedTitle>
               <p className="mt-2 text-xs font-mono uppercase tracking-wider text-text-secondary">{project.tagline}</p>
               <p className="mt-4 text-xs leading-relaxed text-text-secondary">
                 {project.description}
@@ -141,11 +142,10 @@ export default async function ProjectPage({ params }: Props) {
           {/* Hero image */}
           <FadeIn direction="up" distance={25} className="w-full">
             <div className="mt-10 overflow-hidden rounded-xl border border-border-muted bg-background">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <SharedImage
+                slug={project.slug}
                 src={project.cardImage}
                 alt={`${project.name} preview`}
-                className="aspect-[16/9] w-full object-cover"
               />
             </div>
           </FadeIn>

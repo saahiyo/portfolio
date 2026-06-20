@@ -1,7 +1,12 @@
 "use client";
 
+import { ViewTransition } from "react";
 import { PageTransition } from "@/components/Animate";
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <PageTransition>{children}</PageTransition>;
+  return (
+    <ViewTransition>
+      <PageTransition>{children}</PageTransition>
+    </ViewTransition>
+  );
 }

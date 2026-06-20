@@ -172,3 +172,40 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================
+   View Transition API — Shared Element Animations
+   ============================
+   These rules customize how elements morph between pages
+   when using React's <ViewTransition> component. */
+
+/* Default cross-fade for non-shared page content */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Shared image morph — smooth expansion/contraction */
+::view-transition-group(*) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Cross-fade for the old/new content within shared elements */
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 250ms;
+  animation-timing-function: ease;
+  mix-blend-mode: normal;
+}
+
+/* Respect reduced motion — disable all view transitions */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0ms !important;
+  }
+}
+
