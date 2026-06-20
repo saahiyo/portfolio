@@ -21,8 +21,8 @@
   --color-muted: var(--muted);
 
   /* Typography */
-  --font-sans: var(--font-inter), "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-sans: "Geist Sans", var(--font-inter), "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "Geist Mono", var(--font-mono), ui-monospace, monospace;
 
   /* Typography Scale */
   --font-size-xs: 12px;
@@ -36,18 +36,18 @@
 
   /* Radius Tokens */
   --radius-xs: 4px;
-  --radius-sm: 8px;
+  --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
   --radius-xl2: 50px;
   --radius-step7: 9999px;
 
-  /* Shadow Tokens */
-  --shadow-1: 0px 1.2px 0px 0px rgba(0, 0, 0, 0.03);
-  --shadow-2: 0px 8px 2px 0px rgba(0, 0, 0, 0), 0px 5px 2px 0px rgba(0, 0, 0, 0.01), 0px 3px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 1px 0px rgba(0, 0, 0, 0.07), 0px 0px 1px 0px rgba(0, 0, 0, 0.08);
-  --shadow-3: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.04), 0px 0px 0px 1px rgba(0, 0, 0, 0.6), 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-  --shadow-4: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+  /* Shadow Tokens mapped to dynamic variables */
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+  --shadow-3: var(--shadow-3);
+  --shadow-4: var(--shadow-4);
 
   /* Transition Durations */
   --transition-duration-instant: 100ms;
@@ -55,42 +55,54 @@
 }
 
 :root {
+  /* Geist Dark Theme variables */
   --background: #000000;
-  --surface-raised: #08090a;
-  --surface-strong: #e5e5e6;
-  --text-primary: #f7f8f8;
-  --text-secondary: #8a8f98;
-  --text-tertiary: #62666d;
+  --surface-raised: #0a0a0a;
+  --surface-strong: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #8f8f8f;
+  --text-tertiary: #666666;
   --border-muted: rgba(255, 255, 255, 0.08);
-  --focus-ring: #ffffff;
-  --surface: #08090a;
-  --surface-2: #111213;
-  --border: rgba(255, 255, 255, 0.08);
-  --foreground: #f7f8f8;
-  --muted: #8a8f98;
+  --focus-ring: #006bff;
+  --surface: #000000;
+  --surface-2: #0a0a0a;
+  --border: rgba(255, 255, 255, 0.1);
+  --foreground: #ffffff;
+  --muted: #8f8f8f;
   --grid-color: rgba(255, 255, 255, 0.015);
-  --hero-grid-color: rgba(255, 255, 255, 0.035);
-  --spotlight-gradient: radial-gradient(closest-side, rgba(120, 119, 198, 0.12), rgba(255, 255, 255, 0.04), transparent);
+  --hero-grid-color: rgba(255, 255, 255, 0.03);
+  --spotlight-gradient: radial-gradient(closest-side, rgba(0, 107, 255, 0.12), rgba(255, 255, 255, 0.02), transparent);
+  
+  --shadow-1: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.04), 0px 0px 0px 1px rgba(0, 0, 0, 0.6), 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.8);
+  --shadow-3: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.04), 0px 0px 0px 1px rgba(0, 0, 0, 0.6), 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  --shadow-4: 0px 0px 0px 1px rgba(255, 255, 255, 0.08);
   color-scheme: dark;
 }
 
 html.light {
-  --background: #fafafa;
-  --surface-raised: #ffffff;
-  --surface-strong: #09090b;
-  --text-primary: #09090b;
-  --text-secondary: #52525b;
-  --text-tertiary: #71717a;
-  --border-muted: rgba(9, 9, 11, 0.08);
-  --focus-ring: #09090b;
+  /* Geist Light Theme variables */
+  --background: #ffffff;
+  --surface-raised: #fafafa;
+  --surface-strong: #171717;
+  --text-primary: #171717;
+  --text-secondary: #4d4d4d;
+  --text-tertiary: #8f8f8f;
+  --border-muted: rgba(0, 0, 0, 0.06);
+  --focus-ring: #006bff;
   --surface: #ffffff;
-  --surface-2: #f4f4f5;
-  --border: rgba(9, 9, 11, 0.08);
-  --foreground: #09090b;
-  --muted: #52525b;
-  --grid-color: rgba(9, 9, 11, 0.03);
-  --hero-grid-color: rgba(9, 9, 11, 0.04);
-  --spotlight-gradient: radial-gradient(closest-side, rgba(120, 119, 198, 0.06), rgba(9, 9, 11, 0.01), transparent);
+  --surface-2: #fafafa;
+  --border: rgba(0, 0, 0, 0.08);
+  --foreground: #171717;
+  --muted: #4d4d4d;
+  --grid-color: rgba(0, 0, 0, 0.03);
+  --hero-grid-color: rgba(0, 0, 0, 0.05);
+  --spotlight-gradient: radial-gradient(closest-side, rgba(0, 107, 255, 0.05), rgba(0, 0, 0, 0.01), transparent);
+  
+  --shadow-1: 0 2px 2px rgba(0, 0, 0, 0.04);
+  --shadow-2: 0 1px 1px rgba(0, 0, 0, 0.02), 0 4px 8px -4px rgba(0, 0, 0, 0.04), 0 16px 24px -8px rgba(0, 0, 0, 0.06);
+  --shadow-3: 0 1px 1px rgba(0, 0, 0, 0.02), 0 8px 16px -4px rgba(0, 0, 0, 0.04), 0 24px 32px -8px rgba(0, 0, 0, 0.06);
+  --shadow-4: 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
   color-scheme: light;
 }
 
