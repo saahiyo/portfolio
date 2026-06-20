@@ -23,17 +23,6 @@ const heroRoles = [
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
-      {/* Background Grid Pattern */}
-      <div 
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-20 bg-[size:64px_64px] bg-center [mask-image:radial-gradient(ellipse_60%_50%_at_50%_15%,#000_20%,transparent_100%)]" 
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, var(--hero-grid-color) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--hero-grid-color) 1px, transparent 1px)
-          `,
-        }}
-      />
 
       {/* Soft spotlight radial backdrop */}
       <div

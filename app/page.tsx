@@ -14,7 +14,7 @@ export default function Home() {
           gridGap={6}
           flickerChance={0.05}
           color="var(--text-secondary)"
-          maxOpacity={0.3}
+          maxOpacity={0.2}
           className="h-full w-full"
         />
       </div>
