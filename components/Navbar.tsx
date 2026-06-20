@@ -51,7 +51,7 @@ export function Navbar() {
   const overlayVariants = {
     hidden: {
       opacity: 0,
-      transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] as const },
+      transition: { duration: 0.3, ease: [0.32, 0.94, 0.6, 1] as const },
     },
     visible: {
       opacity: 1,
@@ -62,7 +62,7 @@ export function Navbar() {
   // Container for staggering children
   const menuContainerVariants = {
     hidden: {
-      transition: { staggerChildren: 0.03, staggerDirection: -1 },
+      transition: { staggerChildren: 0.02, staggerDirection: -1 },
     },
     visible: {
       transition: { staggerChildren: 0.06, delayChildren: 0.1 },
@@ -73,8 +73,12 @@ export function Navbar() {
   const menuItemVariants = {
     hidden: {
       opacity: 0,
-      y: 20,
+      y: 15,
       filter: "blur(4px)",
+      transition: {
+        duration: 0.2,
+        ease: [0.32, 0.94, 0.6, 1] as const,
+      },
     },
     visible: {
       opacity: 1,
