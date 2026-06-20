@@ -9,6 +9,7 @@ type LogItem = {
   id: string;
   type: "input" | "output";
   content: React.ReactNode;
+  dir?: string;
 };
 
 export function DeveloperCLI() {
@@ -18,6 +19,7 @@ export function DeveloperCLI() {
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
   const [isMac, setIsMac] = useState(false);
+  const [currentDir, setCurrentDir] = useState("~");
 
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -302,6 +304,330 @@ export function DeveloperCLI() {
     }, 300);
   };
 
+  const printWhoami = () => {
+    setLogs((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        type: "output",
+        content: <span className="text-zinc-300 font-mono text-[11px]">visitor</span>,
+      },
+    ]);
+  };
+
+  const printLs = () => {
+    if (currentDir === "~") {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: (
+            <div className="flex flex-wrap gap-x-6 text-[11px] font-mono">
+              <span className="text-sky-400">about.md</span>
+              <span className="text-purple-400">contact.json</span>
+              <span className="text-emerald-400 font-bold">projects/</span>
+              <span className="text-sky-400">resume.pdf</span>
+              <span className="text-sky-400">skills.txt</span>
+            </div>
+          ),
+        },
+      ]);
+    } else if (currentDir === "~/projects") {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: (
+            <div className="flex flex-wrap gap-x-6 text-[11px] font-mono text-sky-400">
+              <span>1_terabox-gateway.md</span>
+              <span>2_bca-notes.md</span>
+              <span>3_teraplay.md</span>
+            </div>
+          ),
+        },
+      ]);
+    }
+  };
+
+  const handleCdCommand = (dir: string) => {
+    if (!dir) {
+      setCurrentDir("~");
+      return;
+    }
+
+    const d = dir.trim();
+
+    if (d === "projects" || d === "projects/") {
+      if (currentDir === "~") {
+        setCurrentDir("~/projects");
+      } else {
+        setLogs((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            type: "output",
+            content: <span className="text-red-400 font-mono text-[11px]">cd: projects: No such directory</span>,
+          },
+        ]);
+      }
+    } else if (d === ".." || d === "../") {
+      if (currentDir === "~/projects") {
+        setCurrentDir("~");
+      } else {
+        setLogs((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            type: "output",
+            content: <span className="text-zinc-500 font-mono text-[11px]">cd: already at home directory</span>,
+          },
+        ]);
+      }
+    } else if (d === "~" || d === "home") {
+      setCurrentDir("~");
+    } else if (d === "/") {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: <span className="text-yellow-400 font-mono text-[11px]">Permission denied: Cannot access absolute filesystem root (/). Mock redirected to home (~).</span>,
+        },
+      ]);
+      setCurrentDir("~");
+    } else {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: <span className="text-red-400 font-mono text-[11px]">cd: {dir}: No such file or directory</span>,
+        },
+      ]);
+    }
+  };
+
+  const printContactJSON = () => {
+    setLogs((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        type: "output",
+        content: (
+          <pre className="text-zinc-300 font-mono text-[11px] leading-relaxed select-text">
+            {"{"}
+            {"\n"}  <span className="text-purple-400">&quot;name&quot;</span>: <span className="text-emerald-400">&quot;Shakir Ansari&quot;</span>,
+            {"\n"}  <span className="text-purple-400">&quot;email&quot;</span>: <span className="text-emerald-400">&quot;shakir.ansarii075@gmail.com&quot;</span>,
+            {"\n"}  <span className="text-purple-400">&quot;github&quot;</span>: <span className="text-emerald-400">&quot;https://github.com/saahiyo&quot;</span>,
+            {"\n"}  <span className="text-purple-400">&quot;linkedin&quot;</span>: <span className="text-emerald-400">&quot;https://linkedin.com/in/shakir-ansari-362784296&quot;</span>
+            {"\n"}{"}"}
+          </pre>
+        ),
+      },
+    ]);
+  };
+
+  const printProjectDetail = (slug: string) => {
+    if (slug === "terabox") {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: (
+            <div className="space-y-1.5 text-zinc-400 font-mono text-[11px] leading-relaxed">
+              <p className="text-zinc-100 font-bold"># Terabox Gateway v2</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Category:</span> High-performance media resolver API</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Stack:</span> Next.js, Node.js, Cloudflare Workers</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Summary:</span> Resolves streaming media files, bypassing link restrictions in real-time with latency-based load balancing.</p>
+              <p>Type <span className="text-emerald-400 font-bold">go 1</span> to read the complete project case study on-page.</p>
+            </div>
+          ),
+        },
+      ]);
+    } else if (slug === "bca") {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: (
+            <div className="space-y-1.5 text-zinc-400 font-mono text-[11px] leading-relaxed">
+              <p className="text-zinc-100 font-bold"># BCA Notes</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Category:</span> Sharing web application & community dashboard</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Stack:</span> React, Firebase, Tailwind CSS</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Summary:</span> Academic resources aggregator platform for notes sharing, with full search indexing and collaborative moderation.</p>
+              <p>Type <span className="text-emerald-400 font-bold">go 2</span> to read the complete project case study on-page.</p>
+            </div>
+          ),
+        },
+      ]);
+    } else if (slug === "teraplay") {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: (
+            <div className="space-y-1.5 text-zinc-400 font-mono text-[11px] leading-relaxed">
+              <p className="text-zinc-100 font-bold"># Teraplay</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Category:</span> Video player client & media indexer</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Stack:</span> Next.js, HLS, Custom Video Renderer</p>
+              <p>  - <span className="text-zinc-300 font-semibold">Summary:</span> A unified media layout interface supporting adaptive streaming protocol playback and directory mapping.</p>
+              <p>Type <span className="text-emerald-400 font-bold">go 3</span> to read the complete project case study on-page.</p>
+            </div>
+          ),
+        },
+      ]);
+    }
+  };
+
+  const handleCatCommand = (fileName: string) => {
+    if (!fileName) {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: <span className="text-red-400 font-mono text-[11px]">Usage: cat [filename]</span>,
+        },
+      ]);
+      return;
+    }
+
+    const f = fileName.toLowerCase().trim();
+
+    if (currentDir === "~") {
+      if (f === "about.md" || f === "about") {
+        printAbout();
+      } else if (f === "skills.txt" || f === "skills") {
+        printSkills();
+      } else if (f === "contact.json" || f === "contact") {
+        printContactJSON();
+      } else if (f === "resume.pdf" || f === "resume") {
+        handleDownloadResume();
+      } else if (f === "projects" || f === "projects/") {
+        setLogs((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            type: "output",
+            content: <span className="text-zinc-400 font-mono text-[11px]">cat: projects: Is a directory. Try &apos;cd projects&apos; and then &apos;ls&apos;.</span>,
+          },
+        ]);
+      } else {
+        setLogs((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            type: "output",
+            content: <span className="text-red-400 font-mono text-[11px]">cat: {fileName}: No such file or directory</span>,
+          },
+        ]);
+      }
+    } else if (currentDir === "~/projects") {
+      if (f === "1_terabox-gateway.md" || f === "1" || f === "terabox") {
+        printProjectDetail("terabox");
+      } else if (f === "2_bca-notes.md" || f === "2" || f === "bca") {
+        printProjectDetail("bca");
+      } else if (f === "3_teraplay.md" || f === "3" || f === "teraplay") {
+        printProjectDetail("teraplay");
+      } else {
+        setLogs((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            type: "output",
+            content: <span className="text-red-400 font-mono text-[11px]">cat: {fileName}: No such file or directory</span>,
+          },
+        ]);
+      }
+    }
+  };
+
+  const printUname = (arg?: string) => {
+    let output = "Linux";
+    if (arg === "-a" || arg === "--all") {
+      output = `Linux shakir-portfolio 6.8.0-1012-aws #14-Ubuntu SMP Sat Jun 20 2026 x86_64 x86_64 x86_64 GNU/Linux`;
+    }
+    setLogs((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        type: "output",
+        content: <span className="text-zinc-300 font-mono text-[11px]">{output}</span>,
+      },
+    ]);
+  };
+
+  const printDate = () => {
+    setLogs((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        type: "output",
+        content: <span className="text-zinc-300 font-mono text-[11px]">{new Date().toString()}</span>,
+      },
+    ]);
+  };
+
+  const handlePingCommand = (target: string) => {
+    const t = target ? target.trim() : "shakiransari.dev";
+    setLogs((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        type: "output",
+        content: (
+          <div className="space-y-1 text-zinc-400 font-mono text-[11px]">
+            <p className="text-zinc-300 font-semibold">PING {t} (185.199.108.153) 56(84) bytes of data.</p>
+            <p>64 bytes from {t}: icmp_seq=1 ttl=56 time=12.4 ms</p>
+            <p>64 bytes from {t}: icmp_seq=2 ttl=56 time=11.1 ms</p>
+            <p>64 bytes from {t}: icmp_seq=3 ttl=56 time=14.3 ms</p>
+            <p className="text-zinc-300 mt-1">--- {t} ping statistics ---</p>
+            <p>3 packets transmitted, 3 received, 0% packet loss, time 2003ms</p>
+            <p>rtt min/avg/max/mdev = 11.121/12.607/14.321/1.317 ms</p>
+          </div>
+        ),
+      },
+    ]);
+  };
+
+  const handleSudoCommand = (fullCmd: string) => {
+    if (fullCmd.toLowerCase().includes("rm -rf")) {
+      setLogs((prev) => [
+        ...prev,
+        {
+          id: Math.random().toString(),
+          type: "output",
+          content: (
+            <div className="space-y-1 font-mono text-[11px]">
+              <p className="text-yellow-500 font-bold">WARNING: Attempting to delete Shakir&apos;s portfolio filesystem...</p>
+              <p className="text-red-400">bash: rm: permission denied. Nice try!</p>
+            </div>
+          ),
+        },
+      ]);
+      return;
+    }
+
+    setLogs((prev) => [
+      ...prev,
+      {
+        id: Math.random().toString(),
+        type: "output",
+        content: (
+          <div className="space-y-1 font-mono text-[11px] text-zinc-400">
+            <p className="text-zinc-300">[sudo] password for visitor: <span className="text-zinc-700 italic">(password hidden)</span></p>
+            <p className="text-red-400 mt-1">visitor is not in the sudoers file. This incident will be reported.</p>
+          </div>
+        ),
+      },
+    ]);
+  };
+
   const handleCommandSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const cmdStr = input.trim();
@@ -314,6 +640,7 @@ export function DeveloperCLI() {
         id: Math.random().toString(),
         type: "input",
         content: cmdStr,
+        dir: currentDir,
       },
     ]);
 
@@ -324,6 +651,7 @@ export function DeveloperCLI() {
     setInput("");
 
     const parts = cmdStr.split(" ").filter(Boolean);
+    if (parts.length === 0) return;
     const command = parts[0].toLowerCase();
     const arg = parts.slice(1).join(" ");
 
@@ -361,6 +689,41 @@ export function DeveloperCLI() {
         break;
       case "go":
         handleGoCommand(arg);
+        break;
+      // Basic Linux commands
+      case "whoami":
+        printWhoami();
+        break;
+      case "pwd":
+        setLogs((prev) => [
+          ...prev,
+          {
+            id: Math.random().toString(),
+            type: "output",
+            content: <span className="text-zinc-300 font-mono text-[11px]">{currentDir === "~" ? "/home/visitor" : "/home/visitor/projects"}</span>,
+          },
+        ]);
+        break;
+      case "ls":
+        printLs();
+        break;
+      case "cd":
+        handleCdCommand(arg);
+        break;
+      case "cat":
+        handleCatCommand(arg);
+        break;
+      case "uname":
+        printUname(arg);
+        break;
+      case "date":
+        printDate();
+        break;
+      case "ping":
+        handlePingCommand(arg);
+        break;
+      case "sudo":
+        handleSudoCommand(arg);
         break;
       default:
         setLogs((prev) => [
@@ -478,7 +841,7 @@ export function DeveloperCLI() {
                   <div key={log.id}>
                     {log.type === "input" ? (
                       <div className="flex items-center gap-2 font-mono text-[11px]">
-                        <span className="text-emerald-500 font-bold">visitor@shakir.dev:~$</span>
+                        <span className="text-emerald-500 font-bold">visitor@shakir.dev:{log.dir ?? "~"}$</span>
                         <span className="text-zinc-100">{log.content}</span>
                       </div>
                     ) : (
@@ -494,7 +857,7 @@ export function DeveloperCLI() {
                 className="flex items-center gap-2 border-t border-zinc-900 bg-zinc-950 px-4 py-3"
               >
                 <span className="text-emerald-500 font-bold text-[11px] shrink-0">
-                  visitor@shakir.dev:~$
+                  visitor@shakir.dev:{currentDir}$
                 </span>
                 <input
                   ref={inputRef}
@@ -502,7 +865,8 @@ export function DeveloperCLI() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleInputKeyDown}
-                  className="flex-1 bg-transparent text-[11px] text-zinc-100 outline-none border-none caret-emerald-500 selection:bg-emerald-500/30 w-full"
+                  className="flex-1 bg-transparent text-[11px] text-zinc-100 caret-emerald-500 selection:bg-emerald-500/30 w-full"
+                  style={{ outline: "none", border: "none", boxShadow: "none" }}
                   placeholder="Type command here..."
                   autoComplete="off"
                   autoCorrect="off"
