@@ -200,6 +200,22 @@ body {
   mix-blend-mode: normal;
 }
 
+/* ============================
+   Theme Toggle — Circular Reveal
+   ============================
+   Scoped behind .theme-transitioning so these rules
+   only activate during theme switches, not route navigations. */
+
+.theme-transitioning::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+.theme-transitioning::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 /* Respect reduced motion — disable all view transitions */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*),
