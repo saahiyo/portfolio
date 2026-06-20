@@ -6,7 +6,9 @@ import {
   GitHubIcon,
   LinkedInIcon,
   DownloadIcon,
-  SparkIcon,
+  LayersIcon,
+  ServerIcon,
+  CloudIcon,
 } from "@/components/Icons";
 import { FadeIn, StaggerContainer } from "@/components/Animate";
 
@@ -129,21 +131,21 @@ export function Hero() {
             <div className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-text-tertiary">
               <FadeIn direction="up" distance={10}>
                 <span className="inline-flex items-center gap-2">
-                  <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
+                  <LayersIcon className="h-3.5 w-3.5 text-text-secondary" />
                   Full-Stack Development
                 </span>
               </FadeIn>
               <span className="hidden h-3 w-px bg-border-muted sm:inline-block" />
               <FadeIn direction="up" distance={10}>
                 <span className="inline-flex items-center gap-2">
-                  <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
+                  <ServerIcon className="h-3.5 w-3.5 text-text-secondary" />
                   Backend Systems &amp; APIs
                 </span>
               </FadeIn>
               <span className="hidden h-3 w-px bg-border-muted sm:inline-block" />
               <FadeIn direction="up" distance={10}>
                 <span className="inline-flex items-center gap-2">
-                  <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
+                  <CloudIcon className="h-3.5 w-3.5 text-text-secondary" />
                   Cloud Deployment
                 </span>
               </FadeIn>
