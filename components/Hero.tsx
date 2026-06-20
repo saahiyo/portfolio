@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
@@ -23,6 +26,38 @@ const heroRoles = [
 ];
 
 export function Hero() {
+  const [visits, setVisits] = useState<number | null>(null);
+
+  useEffect(() => {
+    // 1. Load from cache first for instant paint
+    const cachedVisits = localStorage.getItem("visits-count");
+    if (cachedVisits) {
+      setVisits(parseInt(cachedVisits, 10));
+    }
+
+    // 2. Fetch/increment from Counter API (using a namespace for saahiyo-portfolio)
+    const baseline = 1840;
+    const namespace = "saahiyo-portfolio";
+    const key = "visits";
+
+    fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
+      .then((res) => {
+        if (!res.ok) throw new Error("API failure");
+        return res.json();
+      })
+      .then((data) => {
+        const count = baseline + (data.value || 0);
+        setVisits(count);
+        localStorage.setItem("visits-count", count.toString());
+      })
+      .catch((err) => {
+        console.error("Counter API failed, using fallback:", err);
+        if (!cachedVisits) {
+          setVisits(baseline + 1);
+        }
+      });
+  }, []);
+
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
 
@@ -48,6 +83,13 @@ export function Hero() {
                   </span>
                   Available for projects
                 </div>
+
+                {/* Views count pill */}
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
+                  <span className="h-1 w-1 rounded-full bg-sky-500" />
+                  <span>{visits !== null ? `${visits.toLocaleString()} views` : "--- views"}</span>
+                </div>
+
                 <Link
                   href="/projects/terabox-gateway"
                   className="inline-flex items-center gap-1.5 text-[10px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-fast"
