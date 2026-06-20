@@ -23,6 +23,18 @@ export function ThemeToggle() {
     setTheme(initialTheme);
   }, []);
 
+  // Sync state if theme is toggled externally (e.g. from Developer CLI)
+  useEffect(() => {
+    const handleThemeChange = () => {
+      const isLight = document.documentElement.classList.contains("light");
+      setTheme(isLight ? "light" : "dark");
+    };
+    window.addEventListener("theme-change", handleThemeChange);
+    return () => {
+      window.removeEventListener("theme-change", handleThemeChange);
+    };
+  }, []);
+
   const applyTheme = useCallback((nextTheme: "light" | "dark") => {
     if (nextTheme === "light") {
       document.documentElement.classList.add("light");
