@@ -41,9 +41,8 @@ export function Navbar() {
               className="flex items-center gap-2 text-sm font-semibold tracking-tight text-text-primary transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
               aria-label={`${siteConfig.name} — home`}
             >
-              <svg viewBox="0 0 20 20" fill="currentColor" className="h-4.5 w-4.5 text-text-primary">
-                <path fillRule="evenodd" d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm-4.75-5.75L14.25 5.25a.75.75 0 111.06 1.06L6.31 15.31a.75.75 0 11-1.06-1.06zm-1.5-3.5L10.75 3.75a.75.75 0 111.06 1.06L4.81 11.81a.75.75 0 11-1.06-1.06zm4.5 7L16.25 9.75a.75.75 0 111.06 1.06L9.31 18.81a.75.75 0 11-1.06-1.06z" clipRule="evenodd" />
-              </svg>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/icon.svg" alt="" width={20} height={20} className="h-5 w-5 rounded-[4px]" />
               <span className="font-sans text-sm font-semibold tracking-tight">{siteConfig.name}</span>
             </Link>
           </div>
