@@ -58,68 +58,66 @@ export function Timeline() {
       className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28"
     >
       <Container>
-        <div className="mx-auto max-w-[860px]">
-          <FadeIn direction="up">
-            <SectionHeading
-              eyebrow="04 — Experience"
-              title="Project Timeline"
-              description="Major milestones and shipped products, most recent first."
-            />
-          </FadeIn>
+        <FadeIn direction="up">
+          <SectionHeading
+            eyebrow="04 — Experience"
+            title="Project Timeline"
+            description="Major milestones and shipped products, most recent first."
+          />
+        </FadeIn>
 
-          <div ref={containerRef} className="relative mt-16">
-            {/* Background Track Line (Dashed) */}
-            <div className="absolute left-[5px] top-2 bottom-2 w-px border-l border-dashed border-text-secondary/20 sm:left-[172px]" />
+        <div ref={containerRef} className="relative mt-16 max-w-[860px]">
+          {/* Background Track Line (Dashed) */}
+          <div className="absolute left-[5px] top-2 bottom-2 w-px border-l border-dashed border-text-secondary/20 sm:left-[172px]" />
 
-            {/* Scroll-Following Progress Line (Solid) */}
-            <motion.div
-              className="absolute left-[5px] top-2 bottom-2 w-[1.5px] bg-text-secondary origin-top sm:left-[172px]"
-              style={{ scaleY }}
-            />
+          {/* Scroll-Following Progress Line (Solid) */}
+          <motion.div
+            className="absolute left-[5px] top-2 bottom-2 w-[1.5px] bg-text-secondary origin-top sm:left-[172px]"
+            style={{ scaleY }}
+          />
 
-            <StaggerContainer staggerDelay={0.1} className="space-y-0" tagName="ol">
-              {milestones.map((m, i) => (
-                <FadeIn key={m.title} direction="up" distance={20} className="w-full">
-                  <li className="relative grid gap-4 pb-16 pl-8 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0">
-                    {/* Circle Node (Centered on the line) */}
-                    <span
-                      aria-hidden
-                      className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 rounded-full border border-text-secondary/50 bg-background transition-colors duration-fast sm:left-[167px]"
-                    />
+          <StaggerContainer staggerDelay={0.1} className="space-y-0" tagName="ol">
+            {milestones.map((m, i) => (
+              <FadeIn key={m.title} direction="up" distance={20} className="w-full">
+                <li className="relative grid gap-4 pb-16 pl-8 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0">
+                  {/* Circle Node (Centered on the line) */}
+                  <span
+                    aria-hidden
+                    className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 rounded-full border border-text-secondary/50 bg-background transition-colors duration-fast sm:left-[167px]"
+                  />
 
-                    {/* Left side: Year */}
-                    <div className="font-mono text-xs text-text-secondary sm:pr-4 sm:text-right">
-                      {m.year}
-                    </div>
+                  {/* Left side: Year */}
+                  <div className="font-mono text-xs text-text-secondary sm:pr-4 sm:text-right">
+                    {m.year}
+                  </div>
 
-                    {/* Right side: Card */}
-                    <div className="relative sm:pl-8">
-                      <div className="rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <h3 className="text-sm font-semibold text-text-primary">
-                            {m.title}
-                          </h3>
-                          <span className="rounded border border-border-muted bg-background px-2 py-0.5 text-[10px] text-text-secondary">
-                            {m.category}
-                          </span>
-                        </div>
-                        <p className="mt-2 text-xs leading-relaxed text-text-secondary">
-                          {m.body}
-                        </p>
-                        <Link
-                          href={m.href}
-                          className="mt-3.5 inline-flex items-center gap-1 rounded border border-border-muted bg-background px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-                        >
-                          View case study
-                          <ArrowUpRightIcon className="h-3 w-3" />
-                        </Link>
+                  {/* Right side: Card */}
+                  <div className="relative sm:pl-8">
+                    <div className="rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <h3 className="text-sm font-semibold text-text-primary">
+                          {m.title}
+                        </h3>
+                        <span className="rounded border border-border-muted bg-background px-2 py-0.5 text-[10px] text-text-secondary">
+                          {m.category}
+                        </span>
                       </div>
+                      <p className="mt-2 text-xs leading-relaxed text-text-secondary">
+                        {m.body}
+                      </p>
+                      <Link
+                        href={m.href}
+                        className="mt-3.5 inline-flex items-center gap-1 rounded border border-border-muted bg-background px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+                      >
+                        View case study
+                        <ArrowUpRightIcon className="h-3 w-3" />
+                      </Link>
                     </div>
-                  </li>
-                </FadeIn>
-              ))}
-            </StaggerContainer>
-          </div>
+                  </div>
+                </li>
+              </FadeIn>
+            ))}
+          </StaggerContainer>
         </div>
       </Container>
     </section>
