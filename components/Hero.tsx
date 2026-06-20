@@ -46,7 +46,7 @@ export function Hero() {
         return res.json();
       })
       .then((data) => {
-        const count = baseline + (data.value || 0);
+        const count = baseline + (data.count || 0);
         setVisits(count);
         localStorage.setItem("visits-count", count.toString());
       })
