@@ -2,12 +2,14 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/Icons";
+import { WavePath } from "@/components/ui/wave-path";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-border-muted py-10">
+    <footer className="py-10">
       <Container>
+        <WavePath className="w-full text-border-muted mb-10" />
         <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-2">
             <span className="flex h-7 w-7 items-center justify-center rounded bg-surface-strong text-[11px] font-bold text-background shadow-3 border border-border-muted">
