@@ -190,12 +190,12 @@ export default async function ProjectPage({ params }: Props) {
         </Block>
 
         {/* Screenshots */}
+        {/* Screenshots (Disabled for now)
         <Block index="04" title="Screenshots">
           <div className="grid gap-5 sm:grid-cols-2">
             {project.screenshots.map((shot) => (
               <figure key={shot.src}>
                 <div className="overflow-hidden rounded-xl border border-border-muted bg-background">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={shot.src}
                     alt={shot.alt}
@@ -210,6 +210,7 @@ export default async function ProjectPage({ params }: Props) {
             ))}
           </div>
         </Block>
+        */}
 
         {/* Tech Stack */}
         <Block index="05" title="Tech Stack">
