@@ -50,7 +50,7 @@ const TextReveal = React.memo(function TextReveal({
   const rootProps: Record<string, unknown> = {
     className: `inline-block relative no-underline tracking-tight overflow-hidden cursor-pointer select-none ${className}`.trim(),
     style: {
-      fontSize,
+      ...(fontSize !== "inherit" ? { fontSize } : {}),
       color: hovered ? hoverColor : color,
       transition: "color 0.35s ease",
       lineHeight: 1,
