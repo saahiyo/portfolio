@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
 import { DownloadIcon, MenuIcon, CloseIcon } from "@/components/Icons";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -93,22 +94,31 @@ export function Navbar() {
                 <DownloadIcon className="h-3.5 w-3.5" />
                 Resume
               </Link>
+
+              {/* Separator */}
+              <span aria-hidden="true" className="h-3.5 w-px bg-border-muted" />
+
+              {/* Theme Toggle */}
+              <ThemeToggle />
             </div>
 
-            {/* Mobile toggle */}
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-8 w-8 items-center justify-center rounded border border-border-muted bg-surface-raised text-text-primary shadow-3 md:hidden transition-all duration-fast active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-            >
-              {open ? (
-                <CloseIcon className="h-4.5 w-4.5" />
-              ) : (
-                <MenuIcon className="h-4.5 w-4.5" />
-              )}
-            </button>
+            {/* Mobile theme toggle and menu button */}
+            <div className="flex items-center gap-2 md:hidden">
+              <ThemeToggle />
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                className="inline-flex h-8 w-8 items-center justify-center rounded border border-border-muted bg-surface-raised text-text-primary shadow-3 transition-all duration-fast active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+              >
+                {open ? (
+                  <CloseIcon className="h-4.5 w-4.5" />
+                ) : (
+                  <MenuIcon className="h-4.5 w-4.5" />
+                )}
+              </button>
+            </div>
           </div>
         </nav>
       </Container>

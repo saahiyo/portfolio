@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Building web platforms, APIs, cloud-hosted applications, and media services.",
   url: "https://shakiransari.dev",
-  email: "hello@shakiransari.dev",
+  email: "shakir.ansarii075@gmail.com",
   github: "https://github.com/saahiyo",
   linkedin: "https://www.linkedin.com/in/shakir-ansari-362784296",
   resume: "/resume.pdf",

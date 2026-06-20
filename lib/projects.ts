@@ -84,7 +84,7 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "https://github.com/saahiyo/bca-notes", type: "github" },
-      { label: "Live Demo", href: "https://bca-notes.shakiransari.dev", type: "demo" },
+      { label: "Live Demo", href: "https://bcanotes.tech", type: "demo" },
     ],
   },
   {

@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
@@ -12,79 +9,19 @@ import {
   SparkIcon,
 } from "@/components/Icons";
 
-type ProjectId = "teraplay" | "bca-notes" | "terabox-gateway";
-
-interface MockupData {
-  title: string;
-  path: string;
-  payload: string;
-  statLabel: string;
-  statVal: string;
-  speedLabel: string;
-  speedVal: string;
-}
-
-const mockupProjects: Record<ProjectId, MockupData> = {
-  teraplay: {
-    title: "TeraPlay",
-    path: "// GET /api/v1/stream?id=teraplay-hls",
-    payload: `{
-  "status": "success",
-  "media_type": "video_stream",
-  "resolution": "1080p_adaptive",
-  "stream_url": "https://stream.shakiransari.dev/hls/...",
-  "decoder": "hls.js_native_fallback",
-  "cors_headers": "origin_safe"
-}`,
-    statLabel: "Active streams",
-    statVal: "1,240 clients/min",
-    speedLabel: "Player paint",
-    speedVal: "0.14s",
-  },
-  "bca-notes": {
-    title: "BCA Notes",
-    path: "// Query: firestore/collections/notes",
-    payload: `{
-  "semesters_indexed": 6,
-  "subjects_total": 32,
-  "search_indexing": "static_build_json",
-  "saved_readers": 450,
-  "load_strategy": "static_server_components",
-  "auth": "firebase_oauth"
-}`,
-    statLabel: "Total page indexing",
-    statVal: "12,045 items",
-    speedLabel: "Initial paint",
-    speedVal: "0.10s",
-  },
-  "terabox-gateway": {
-    title: "Terabox Gateway",
-    path: "// POST /api/v2/resolve_link",
-    payload: `{
-  "resolver": "flask_origin_api",
-  "deployments": ["vercel_edge", "render_fallover"],
-  "response_cache": "cloudflare_ttl_300s",
-  "fallback_status": "standby_ready",
-  "direct_download": "enabled",
-  "cors_policy": "enabled"
-}`,
-    statLabel: "Requests processed",
-    statVal: "24,000 requests/day",
-    speedLabel: "Resolution latency",
-    speedVal: "18ms",
-  },
-};
-
 export function Hero() {
-  const [activeProject, setActiveProject] = useState<ProjectId>("teraplay");
-  const data = mockupProjects[activeProject];
-
   return (
     <section id="top" className="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
       {/* Background Grid Pattern */}
       <div 
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-20 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:64px_64px] bg-center [mask-image:radial-gradient(ellipse_60%_50%_at_50%_15%,#000_20%,transparent_100%)]" 
+        className="pointer-events-none absolute inset-0 -z-20 bg-[size:64px_64px] bg-center [mask-image:radial-gradient(ellipse_60%_50%_at_50%_15%,#000_20%,transparent_100%)]" 
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, var(--hero-grid-color) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--hero-grid-color) 1px, transparent 1px)
+          `,
+        }}
       />
 
       {/* Soft spotlight radial backdrop */}
@@ -92,8 +29,7 @@ export function Hero() {
         aria-hidden
         className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[600px] w-[1000px] -translate-x-1/2 rounded-full opacity-40 blur-[130px] transition-opacity duration-fast"
         style={{
-          background:
-            "radial-gradient(closest-side, rgba(120, 119, 198, 0.12), rgba(255, 255, 255, 0.04), transparent)",
+          background: "var(--spotlight-gradient)",
         }}
       />
 
@@ -171,81 +107,6 @@ export function Hero() {
                 <DownloadIcon className="h-3.5 w-3.5" />
                 Resume
               </Link>
-            </div>
-          </div>
-
-          {/* Interactive Mockup Widget */}
-          <div className="hidden sm:block mt-16 overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 max-w-3xl mx-auto text-left animate-fade-in">
-            {/* Mockup Title bar */}
-            <div className="hidden sm:flex h-9 items-center justify-between border-b border-border-muted px-4 bg-background/35">
-              <div className="flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-border-muted border border-border-muted opacity-80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-border-muted border border-border-muted opacity-80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-border-muted border border-border-muted opacity-80" />
-              </div>
-              <div className="font-mono text-[9px] text-text-tertiary">shakir-ansari-workspace</div>
-              <div className="w-12" />
-            </div>
-
-            {/* Mockup Content Grid */}
-            <div className="flex flex-col sm:grid sm:grid-cols-[180px_1fr] sm:h-[260px] overflow-hidden">
-              {/* Sidebar */}
-              <div className="hidden sm:flex border-r border-border-muted p-2.5 flex-col gap-1 text-left bg-background/25">
-                <span className="text-[9px] uppercase font-mono tracking-wider text-text-tertiary px-2 py-1 mb-1">Active Projects</span>
-                
-                <button
-                  type="button"
-                  onClick={() => setActiveProject("teraplay")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
-                    activeProject === "teraplay"
-                      ? "bg-surface-strong text-background font-medium"
-                      : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
-                  }`}
-                >
-                  TeraPlay
-                </button>
-                
-                <button
-                  type="button"
-                  onClick={() => setActiveProject("bca-notes")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
-                    activeProject === "bca-notes"
-                      ? "bg-surface-strong text-background font-medium"
-                      : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
-                  }`}
-                >
-                  BCA Notes
-                </button>
-                
-                <button
-                  type="button"
-                  onClick={() => setActiveProject("terabox-gateway")}
-                  className={`rounded px-2.5 py-1.5 text-xs text-left transition-colors duration-fast ${
-                    activeProject === "terabox-gateway"
-                      ? "bg-surface-strong text-background font-medium"
-                      : "text-text-secondary hover:bg-surface-raised/55 hover:text-text-primary"
-                  }`}
-                >
-                  Terabox Gateway
-                </button>
-              </div>
-
-              {/* Console logs view */}
-              <div className="p-4 flex flex-col justify-between overflow-hidden bg-background/10 h-[240px] sm:h-auto">
-                <div className="overflow-y-auto">
-                  <div className="font-mono text-[10px] text-text-tertiary">{data.path}</div>
-                  <div className="font-mono text-[10px] text-emerald-500 mt-0.5">Uptime: 100% · Status: Active</div>
-                  <pre className="mt-3.5 font-mono text-[11px] leading-relaxed text-text-primary overflow-x-auto whitespace-pre-wrap sm:whitespace-pre">
-                    {data.payload}
-                  </pre>
-                </div>
-                
-                {/* Console footer stats */}
-                <div className="text-[10px] text-text-tertiary border-t border-border-muted pt-2 flex flex-col sm:flex-row sm:justify-between gap-1.5 sm:gap-0 font-sans">
-                  <span>{data.statLabel}: <strong className="text-text-primary font-normal">{data.statVal}</strong></span>
-                  <span>{data.speedLabel}: <strong className="text-emerald-400 font-normal">{data.speedVal}</strong></span>
-                </div>
-              </div>
             </div>
           </div>
 
