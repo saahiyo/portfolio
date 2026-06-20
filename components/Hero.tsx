@@ -11,6 +11,14 @@ import {
   CloudIcon,
 } from "@/components/Icons";
 import { FadeIn, StaggerContainer } from "@/components/Animate";
+import { TextMorph } from "@/components/TextMorph";
+
+const heroRoles = [
+  "Web Platforms",
+  "REST APIs",
+  "Cloud Services",
+  "Media Apps",
+];
 
 export function Hero() {
   return (
@@ -67,7 +75,13 @@ export function Hero() {
 
             <FadeIn direction="up" distance={15}>
               <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
-                Full-Stack Developer
+                Building{" "}
+                <TextMorph
+                  values={heroRoles}
+                  interval={2800}
+                  charDelay={0.035}
+                  charDuration={0.25}
+                />
               </p>
             </FadeIn>
 
