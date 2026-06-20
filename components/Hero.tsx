@@ -12,6 +12,7 @@ import {
 } from "@/components/Icons";
 import { FadeIn, StaggerContainer } from "@/components/Animate";
 import { TextMorph } from "@/components/TextMorph";
+import { GetStartedButton } from "@/components/ui/get-started-button";
 
 const heroRoles = [
   "Web Platforms",
@@ -84,13 +85,7 @@ export function Hero() {
             {/* Actions list */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-sm sm:max-w-none mx-auto w-full">
               <FadeIn direction="up" distance={15} className="w-full sm:w-auto flex justify-center">
-                <Link
-                  href="/projects"
-                  className="inline-flex items-center justify-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
-                >
-                  View Projects
-                  <ArrowRightIcon className="h-3.5 w-3.5" />
-                </Link>
+                <GetStartedButton />
               </FadeIn>
               
               <div className="flex flex-row items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto">
