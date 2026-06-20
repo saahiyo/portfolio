@@ -69,6 +69,7 @@
   --border: rgba(255, 255, 255, 0.08);
   --foreground: #ffffff;
   --muted: #8f8f8f;
+  
   --grid-color: rgba(255, 255, 255, 0.015);
   --hero-grid-color: rgba(255, 255, 255, 0.03);
   --spotlight-gradient: radial-gradient(closest-side, rgba(0, 107, 255, 0.15), rgba(255, 255, 255, 0.02), transparent);
@@ -80,7 +81,7 @@
   color-scheme: dark;
 }
 
-html.light {
+.light {
   /* Geist Light Theme variables */
   --background: #ffffff;
   --surface-raised: #fafafa;
@@ -95,6 +96,7 @@ html.light {
   --border: rgba(0, 0, 0, 0.08);
   --foreground: #171717;
   --muted: #4d4d4d;
+  
   --grid-color: rgba(0, 0, 0, 0.03);
   --hero-grid-color: rgba(0, 0, 0, 0.05);
   --spotlight-gradient: radial-gradient(closest-side, rgba(0, 107, 255, 0.05), rgba(0, 0, 0, 0.01), transparent);

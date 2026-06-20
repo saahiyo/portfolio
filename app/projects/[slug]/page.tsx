@@ -11,6 +11,7 @@ import {
   CheckIcon,
   LayersIcon,
 } from "@/components/Icons";
+import { FadeIn, StaggerContainer } from "@/components/Animate";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -53,17 +54,19 @@ function Block({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-t border-border-muted py-12 first:border-t-0">
-      <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:gap-12">
-        <div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
-            {index}
-          </p>
-          <h2 className="mt-1 text-sm font-semibold text-text-primary">{title}</h2>
+    <FadeIn direction="up" distance={20}>
+      <section className="border-t border-border-muted py-12 first:border-t-0">
+        <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:gap-12">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
+              {index}
+            </p>
+            <h2 className="mt-1 text-sm font-semibold text-text-primary">{title}</h2>
+          </div>
+          <div className="max-w-3xl">{children}</div>
         </div>
-        <div className="max-w-3xl">{children}</div>
-      </div>
-    </section>
+      </section>
+    </FadeIn>
   );
 }
 
@@ -79,66 +82,74 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <article className="pt-28 pb-24">
       <Container>
-        <Link
-          href="/projects"
-          className="mb-8 inline-flex items-center gap-1 rounded border border-border-muted bg-surface-raised px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-        >
-          <ArrowRightIcon className="h-3 w-3 rotate-180" />
-          All projects
-        </Link>
+        <StaggerContainer delayChildren={0.1} staggerDelay={0.06}>
+          <FadeIn direction="up" distance={15}>
+            <Link
+              href="/projects"
+              className="mb-8 inline-flex items-center gap-1 rounded border border-border-muted bg-surface-raised px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+            >
+              <ArrowRightIcon className="h-3 w-3 rotate-180" />
+              All projects
+            </Link>
+          </FadeIn>
 
-        {/* Header */}
-        <header className="max-w-3xl animate-fade-in">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="rounded border border-border-muted bg-surface-raised px-2 py-0.5 text-[10px] font-medium text-text-secondary shadow-3">
-              {project.category}
-            </span>
-            <span className="font-mono text-xs text-text-tertiary">{project.year}</span>
-          </div>
-          <h1 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
-            {project.name}
-          </h1>
-          <p className="mt-2 text-xs font-mono uppercase tracking-wider text-text-secondary">{project.tagline}</p>
-          <p className="mt-4 text-xs leading-relaxed text-text-secondary">
-            {project.description}
-          </p>
+          {/* Header */}
+          <FadeIn direction="up" distance={20} className="w-full">
+            <header className="max-w-3xl">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded border border-border-muted bg-surface-raised px-2 py-0.5 text-[10px] font-medium text-text-secondary shadow-3">
+                  {project.category}
+                </span>
+                <span className="font-mono text-xs text-text-tertiary">{project.year}</span>
+              </div>
+              <h1 className="mt-4 text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
+                {project.name}
+              </h1>
+              <p className="mt-2 text-xs font-mono uppercase tracking-wider text-text-secondary">{project.tagline}</p>
+              <p className="mt-4 text-xs leading-relaxed text-text-secondary">
+                {project.description}
+              </p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
-            {project.links.map((link) => {
-              const isGithub = link.type === "github";
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 rounded px-2.5 py-1 text-[11px] font-medium transition-all duration-fast active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
-                    isGithub
-                      ? "border border-border-muted bg-background text-text-primary shadow-3 hover:bg-surface-strong hover:text-background"
-                      : "border border-transparent bg-surface-strong text-background shadow-2 hover:bg-text-primary"
-                  }`}
-                >
-                  {isGithub ? (
-                    <GitHubIcon className="h-3 w-3" />
-                  ) : (
-                    <ExternalLinkIcon className="h-3 w-3" />
-                  )}
-                  {link.label}
-                </Link>
-              );
-            })}
-          </div>
-        </header>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {project.links.map((link) => {
+                  const isGithub = link.type === "github";
+                  return (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`inline-flex items-center gap-1.5 rounded px-2.5 py-1 text-[11px] font-medium transition-all duration-fast active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
+                        isGithub
+                          ? "border border-border-muted bg-background text-text-primary shadow-3 hover:bg-surface-strong hover:text-background"
+                          : "border border-transparent bg-surface-strong text-background shadow-2 hover:bg-text-primary"
+                      }`}
+                    >
+                      {isGithub ? (
+                        <GitHubIcon className="h-3 w-3" />
+                      ) : (
+                        <ExternalLinkIcon className="h-3 w-3" />
+                      )}
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </div>
+            </header>
+          </FadeIn>
 
-        {/* Hero image */}
-        <div className="mt-10 overflow-hidden rounded-xl border border-border-muted bg-background">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.cardImage}
-            alt={`${project.name} preview`}
-            className="aspect-[16/9] w-full object-cover"
-          />
-        </div>
+          {/* Hero image */}
+          <FadeIn direction="up" distance={25} className="w-full">
+            <div className="mt-10 overflow-hidden rounded-xl border border-border-muted bg-background">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.cardImage}
+                alt={`${project.name} preview`}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </div>
+          </FadeIn>
+        </StaggerContainer>
 
         {/* Overview */}
         <Block index="01" title="Overview">
@@ -264,26 +275,28 @@ export default async function ProjectPage({ params }: Props) {
         </Block>
 
         {/* Prev / Next */}
-        <nav className="mt-16 grid gap-4 border-t border-border-muted pt-8 sm:grid-cols-2">
-          <Link
-            href={`/projects/${prev.slug}`}
-            className="group rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-          >
-            <span className="text-[10px] text-text-tertiary uppercase tracking-wider font-mono">← Previous</span>
-            <span className="mt-1 block text-xs font-semibold text-text-primary group-hover:text-text-secondary">
-              {prev.name}
-            </span>
-          </Link>
-          <Link
-            href={`/projects/${next.slug}`}
-            className="group rounded-xl border border-border-muted bg-surface-raised p-5 text-right shadow-3 transition-colors duration-fast hover:border-text-secondary/40 sm:col-start-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-          >
-            <span className="text-[10px] text-text-tertiary uppercase tracking-wider font-mono">Next →</span>
-            <span className="mt-1 block text-xs font-semibold text-text-primary group-hover:text-text-secondary">
-              {next.name}
-            </span>
-          </Link>
-        </nav>
+        <FadeIn direction="up">
+          <nav className="mt-16 grid gap-4 border-t border-border-muted pt-8 sm:grid-cols-2">
+            <Link
+              href={`/projects/${prev.slug}`}
+              className="group rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+            >
+              <span className="text-[10px] text-text-tertiary uppercase tracking-wider font-mono">← Previous</span>
+              <span className="mt-1 block text-xs font-semibold text-text-primary group-hover:text-text-secondary">
+                {prev.name}
+              </span>
+            </Link>
+            <Link
+              href={`/projects/${next.slug}`}
+              className="group rounded-xl border border-border-muted bg-surface-raised p-5 text-right shadow-3 transition-colors duration-fast hover:border-text-secondary/40 sm:col-start-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+            >
+              <span className="text-[10px] text-text-tertiary uppercase tracking-wider font-mono">Next →</span>
+              <span className="mt-1 block text-xs font-semibold text-text-primary group-hover:text-text-secondary">
+                {next.name}
+              </span>
+            </Link>
+          </nav>
+        </FadeIn>
       </Container>
     </article>
   );

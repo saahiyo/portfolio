@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { projects, projectCategories, type Project } from "@/lib/projects";
 import { ProjectCard } from "@/components/ProjectCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function ProjectsFilterGrid({
   items = projects,
@@ -44,11 +45,26 @@ export function ProjectsFilterGrid({
         })}
       </div>
 
-      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {filtered.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
+      <motion.div 
+        layout 
+        className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+      >
+        <AnimatePresence mode="popLayout">
+          {filtered.map((project) => (
+            <motion.div
+              layout
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ type: "spring", stiffness: 100, damping: 15 }}
+              key={project.slug}
+              className="h-full"
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
       {filtered.length === 0 ? (
         <p className="mt-10 text-center text-xs text-text-secondary">

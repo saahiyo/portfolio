@@ -8,6 +8,7 @@ import {
   DownloadIcon,
   SparkIcon,
 } from "@/components/Icons";
+import { FadeIn, StaggerContainer } from "@/components/Animate";
 
 export function Hero() {
   return (
@@ -35,98 +36,119 @@ export function Hero() {
 
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          {/* Header pill link and Availability badge */}
-          <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-2 text-center">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-              </span>
-              Available for projects
-            </div>
-            <Link
-              href="/projects/terabox-gateway"
-              className="inline-flex items-center gap-1.5 text-[10px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-fast"
-            >
-              <span className="rounded border border-border-muted bg-surface-raised px-1.5 py-0.25 text-[9px] font-bold uppercase tracking-wider text-text-primary shadow-3">New</span>
-              Shipped Terabox Gateway v2 →
-            </Link>
-          </div>
+          <StaggerContainer delayChildren={0.1} staggerDelay={0.08}>
+            {/* Header pill link and Availability badge */}
+            <FadeIn direction="up" distance={15}>
+              <div className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-2 text-center">
+                <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  </span>
+                  Available for projects
+                </div>
+                <Link
+                  href="/projects/terabox-gateway"
+                  className="inline-flex items-center gap-1.5 text-[10px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-fast"
+                >
+                  <span className="rounded border border-border-muted bg-surface-raised px-1.5 py-0.25 text-[9px] font-bold uppercase tracking-wider text-text-primary shadow-3">New</span>
+                  Shipped Terabox Gateway v2 →
+                </Link>
+              </div>
+            </FadeIn>
 
-          <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl">
-            Shakir Ansari
-          </h1>
+            <FadeIn direction="up" distance={20}>
+              <h1 className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl">
+                Shakir Ansari
+              </h1>
+            </FadeIn>
 
-          <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
-            Full-Stack Developer
-          </p>
+            <FadeIn direction="up" distance={15}>
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
+                Full-Stack Developer
+              </p>
+            </FadeIn>
 
-          <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-text-secondary sm:text-md">
-            Building web platforms, APIs, cloud-hosted applications, and media
-            services. Designed for consistency, accessibility, and high performance.
-          </p>
+            <FadeIn direction="up" distance={20}>
+              <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-text-secondary sm:text-md">
+                Building web platforms, APIs, cloud-hosted applications, and media
+                services. Designed for consistency, accessibility, and high performance.
+              </p>
+            </FadeIn>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-sm sm:max-w-none mx-auto w-full">
-            {/* Primary Action - Row 1 on mobile */}
-            <div className="w-full sm:w-auto flex justify-center">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
-              >
-                View Projects
-                <ArrowRightIcon className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-            
-            {/* Secondary Actions - Row 2 on mobile */}
-            <div className="flex flex-row items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto">
-              <Link
-                href={siteConfig.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
-              >
-                <GitHubIcon className="h-3.5 w-3.5" />
-                GitHub
-              </Link>
+            {/* Actions list */}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-sm sm:max-w-none mx-auto w-full">
+              <FadeIn direction="up" distance={15} className="w-full sm:w-auto flex justify-center">
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center gap-1.5 rounded border border-transparent bg-surface-strong px-4 py-2 text-xs font-medium text-background shadow-2 transition-all duration-fast hover:bg-text-primary hover:scale-[1.01] active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full sm:w-auto"
+                >
+                  View Projects
+                  <ArrowRightIcon className="h-3.5 w-3.5" />
+                </Link>
+              </FadeIn>
               
-              <Link
-                href={siteConfig.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
-              >
-                <LinkedInIcon className="h-3.5 w-3.5" />
-                LinkedIn
-              </Link>
-              
-              <Link
-                href={siteConfig.resume}
-                className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary flex-1 sm:flex-none sm:w-auto"
-              >
-                <DownloadIcon className="h-3.5 w-3.5" />
-                Resume
-              </Link>
+              <div className="flex flex-row items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto">
+                <FadeIn direction="up" distance={15} className="flex-1 sm:flex-none">
+                  <Link
+                    href={siteConfig.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full"
+                  >
+                    <GitHubIcon className="h-3.5 w-3.5" />
+                    GitHub
+                  </Link>
+                </FadeIn>
+                
+                <FadeIn direction="up" distance={15} className="flex-1 sm:flex-none">
+                  <Link
+                    href={siteConfig.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full"
+                  >
+                    <LinkedInIcon className="h-3.5 w-3.5" />
+                    LinkedIn
+                  </Link>
+                </FadeIn>
+                
+                <FadeIn direction="up" distance={15} className="flex-1 sm:flex-none">
+                  <Link
+                    href={siteConfig.resume}
+                    className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full"
+                  >
+                    <DownloadIcon className="h-3.5 w-3.5" />
+                    Resume
+                  </Link>
+                </FadeIn>
+              </div>
             </div>
-          </div>
 
-          {/* Subtext info */}
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-text-tertiary">
-            <span className="inline-flex items-center gap-2">
-              <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
-              Full-Stack Development
-            </span>
-            <span className="hidden h-3 w-px bg-border-muted sm:inline-block" />
-            <span className="inline-flex items-center gap-2">
-              <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
-              Backend Systems &amp; APIs
-            </span>
-            <span className="hidden h-3 w-px bg-border-muted sm:inline-block" />
-            <span className="inline-flex items-center gap-2">
-              <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
-              Cloud Deployment
-            </span>
-          </div>
+            {/* Subtext info */}
+            <div className="mt-16 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-text-tertiary">
+              <FadeIn direction="up" distance={10}>
+                <span className="inline-flex items-center gap-2">
+                  <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
+                  Full-Stack Development
+                </span>
+              </FadeIn>
+              <span className="hidden h-3 w-px bg-border-muted sm:inline-block" />
+              <FadeIn direction="up" distance={10}>
+                <span className="inline-flex items-center gap-2">
+                  <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
+                  Backend Systems &amp; APIs
+                </span>
+              </FadeIn>
+              <span className="hidden h-3 w-px bg-border-muted sm:inline-block" />
+              <FadeIn direction="up" distance={10}>
+                <span className="inline-flex items-center gap-2">
+                  <SparkIcon className="h-3.5 w-3.5 text-text-secondary" />
+                  Cloud Deployment
+                </span>
+              </FadeIn>
+            </div>
+          </StaggerContainer>
         </div>
       </Container>
     </section>

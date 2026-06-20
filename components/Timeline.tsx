@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ArrowUpRightIcon } from "@/components/Icons";
+import { FadeIn, StaggerContainer } from "@/components/Animate";
 
 type Milestone = {
   year: string;
@@ -42,54 +43,57 @@ export function Timeline() {
       className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28"
     >
       <Container>
-        <SectionHeading
-          eyebrow="04 — Experience"
-          title="Project Timeline"
-          description="Major milestones and shipped products, most recent first."
-        />
+        <FadeIn direction="up">
+          <SectionHeading
+            eyebrow="04 — Experience"
+            title="Project Timeline"
+            description="Major milestones and shipped products, most recent first."
+          />
+        </FadeIn>
 
-        <ol className="mt-12 space-y-0">
+        <StaggerContainer staggerDelay={0.1} className="mt-12 space-y-0" tagName="ol">
           {milestones.map((m) => (
-            <li
-              key={m.title}
-              className="relative grid gap-4 border-l border-border-muted pb-10 pl-8 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0"
-            >
-              {/* Node + connector (mobile) */}
-              <span
-                aria-hidden
-                className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-text-secondary bg-background sm:hidden"
-              />
+            <FadeIn key={m.title} direction="up" distance={20} className="w-full">
+              <li
+                className="relative grid gap-4 border-l border-border-muted pb-10 pl-8 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0"
+              >
+                {/* Node + connector (mobile) */}
+                <span
+                  aria-hidden
+                  className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full border border-text-secondary bg-background sm:hidden"
+                />
 
-              <div className="font-mono text-xs text-text-secondary sm:pl-8">
-                <span className="sm:absolute sm:-left-[5px] sm:top-1.5 sm:h-2.5 sm:w-2.5 sm:rounded-full sm:border sm:border-text-secondary sm:bg-background" />
-                {m.year}
-              </div>
-
-              <div className="relative sm:border-l sm:border-border-muted sm:pl-8">
-                <div className="rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-sm font-semibold text-text-primary">
-                      {m.title}
-                    </h3>
-                    <span className="rounded border border-border-muted bg-background px-2 py-0.5 text-[10px] text-text-secondary">
-                      {m.category}
-                    </span>
-                  </div>
-                  <p className="mt-2 text-xs leading-relaxed text-text-secondary">
-                    {m.body}
-                  </p>
-                  <Link
-                    href={m.href}
-                    className="mt-3.5 inline-flex items-center gap-1 rounded border border-border-muted bg-background px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-                  >
-                    View case study
-                    <ArrowUpRightIcon className="h-3 w-3" />
-                  </Link>
+                <div className="font-mono text-xs text-text-secondary sm:pl-8">
+                  <span className="sm:absolute sm:-left-[5px] sm:top-1.5 sm:h-2.5 sm:w-2.5 sm:rounded-full sm:border sm:border-text-secondary sm:bg-background" />
+                  {m.year}
                 </div>
-              </div>
-            </li>
+
+                <div className="relative sm:border-l sm:border-border-muted sm:pl-8">
+                  <div className="rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h3 className="text-sm font-semibold text-text-primary">
+                        {m.title}
+                      </h3>
+                      <span className="rounded border border-border-muted bg-background px-2 py-0.5 text-[10px] text-text-secondary">
+                        {m.category}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-xs leading-relaxed text-text-secondary">
+                      {m.body}
+                    </p>
+                    <Link
+                      href={m.href}
+                      className="mt-3.5 inline-flex items-center gap-1 rounded border border-border-muted bg-background px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+                    >
+                      View case study
+                      <ArrowUpRightIcon className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </div>
+              </li>
+            </FadeIn>
           ))}
-        </ol>
+        </StaggerContainer>
       </Container>
     </section>
   );

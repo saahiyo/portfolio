@@ -6,10 +6,20 @@ import { SunIcon, MoonIcon } from "@/components/Icons";
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark" | null>(null);
 
-  // Initialize theme from document class on mount
+  // Initialize theme from localStorage/system preferences on mount and sync classes
   useEffect(() => {
-    const isLight = document.documentElement.classList.contains("light");
-    setTheme(isLight ? "light" : "dark");
+    const storedTheme = localStorage.getItem("theme");
+    const systemPrefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    const initialTheme = storedTheme === "light" || (!storedTheme && systemPrefersLight) ? "light" : "dark";
+    
+    if (initialTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+    
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTheme(initialTheme);
   }, []);
 
   const toggleTheme = () => {
