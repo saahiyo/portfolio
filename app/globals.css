@@ -120,11 +120,6 @@ html {
 
 body {
   background-color: var(--color-background);
-  background-image: 
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-  background-size: 64px 64px;
-  background-position: center top;
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   font-size: var(--font-size-sm); /* 13px base size */
