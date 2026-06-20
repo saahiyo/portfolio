@@ -55,23 +55,23 @@
 }
 
 :root {
-  /* Geist Dark Theme variables */
-  --background: #000000;
-  --surface-raised: #0a0a0a;
+  /* Premium Navy Dark Theme variables (#0B0F19 matches manifest and OG config) */
+  --background: #0b0f19;
+  --surface-raised: #151b26;
   --surface-strong: #ffffff;
   --text-primary: #ffffff;
   --text-secondary: #8f8f8f;
   --text-tertiary: #666666;
-  --border-muted: rgba(255, 255, 255, 0.08);
+  --border-muted: rgba(255, 255, 255, 0.05);
   --focus-ring: #006bff;
-  --surface: #000000;
-  --surface-2: #0a0a0a;
-  --border: rgba(255, 255, 255, 0.1);
+  --surface: #0b0f19;
+  --surface-2: #1c2433;
+  --border: rgba(255, 255, 255, 0.08);
   --foreground: #ffffff;
   --muted: #8f8f8f;
   --grid-color: rgba(255, 255, 255, 0.015);
   --hero-grid-color: rgba(255, 255, 255, 0.03);
-  --spotlight-gradient: radial-gradient(closest-side, rgba(0, 107, 255, 0.12), rgba(255, 255, 255, 0.02), transparent);
+  --spotlight-gradient: radial-gradient(closest-side, rgba(0, 107, 255, 0.15), rgba(255, 255, 255, 0.02), transparent);
   
   --shadow-1: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.03), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.04), 0px 0px 0px 1px rgba(0, 0, 0, 0.6), 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
   --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.8);
