@@ -36,7 +36,7 @@ export function Hero() {
     }
 
     // 2. Fetch/increment from Counter API (using a namespace for saahiyo-portfolio)
-    const baseline = 1840;
+    const baseline = 0;
     const namespace = "saahiyo-portfolio";
     const key = "visits";
 
@@ -90,13 +90,7 @@ export function Hero() {
                   <span>{visits !== null ? `${visits.toLocaleString()} views` : "--- views"}</span>
                 </div>
 
-                <Link
-                  href="/projects/terabox-gateway"
-                  className="inline-flex items-center gap-1.5 text-[10px] font-medium text-text-secondary hover:text-text-primary transition-colors duration-fast"
-                >
-                  <span className="rounded border border-border-muted bg-surface-raised px-1.5 py-0.25 text-[9px] font-bold uppercase tracking-wider text-text-primary shadow-3">New</span>
-                  Shipped Terabox Gateway v2 →
-                </Link>
+
               </div>
             </FadeIn>
 
