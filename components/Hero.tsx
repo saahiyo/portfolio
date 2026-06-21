@@ -163,21 +163,21 @@ export function Hero() {
             </div>
 
             {/* Subtext info */}
-            <div className="mt-16 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[10px] sm:text-xs text-text-tertiary">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[10px] sm:text-xs text-text-tertiary">
               <FadeIn direction="up" distance={10}>
                 <span className="inline-flex items-center gap-1.5">
                   <LayersIcon className="h-3.5 w-3.5 text-text-secondary" />
                   Full-Stack
                 </span>
               </FadeIn>
-              <span className="h-3 w-px bg-border-muted/50" />
+              <span className="h-3 w-px bg-border-muted" />
               <FadeIn direction="up" distance={10}>
                 <span className="inline-flex items-center gap-1.5">
                   <ServerIcon className="h-3.5 w-3.5 text-text-secondary" />
                   Backend &amp; APIs
                 </span>
               </FadeIn>
-              <span className="h-3 w-px bg-border-muted/50" />
+              <span className="h-3 w-px bg-border-muted" />
               <FadeIn direction="up" distance={10}>
                 <span className="inline-flex items-center gap-1.5">
                   <CloudIcon className="h-3.5 w-3.5 text-text-secondary" />
