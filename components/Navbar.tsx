@@ -125,6 +125,7 @@ export function Navbar() {
                     <Link
                       key={item.href}
                       href={item.href}
+                      aria-current={isActive ? "page" : undefined}
                       className={`text-xs font-medium transition-colors duration-fast focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
                         isActive
                           ? "text-text-primary"

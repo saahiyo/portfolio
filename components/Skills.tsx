@@ -19,12 +19,12 @@ const skillGroups: SkillGroup[] = [
   {
     icon: CodeIcon,
     title: "Frontend",
-    skills: ["React", "Next.js", "Tailwind CSS", "JavaScript"],
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript"],
   },
   {
     icon: ServerIcon,
     title: "Backend",
-    skills: ["Node.js", "Express.js", "Python", "REST APIs"],
+    skills: ["Node.js", "Express.js", "Python", "Flask", "REST APIs"],
   },
   {
     icon: DatabaseIcon,

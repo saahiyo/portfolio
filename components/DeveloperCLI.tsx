@@ -157,8 +157,8 @@ export function DeveloperCLI() {
         content: (
           <div className="space-y-1 text-zinc-400 font-mono text-[11px]">
             <p className="text-zinc-200 font-semibold mb-1">Technical Stack Matrix:</p>
-            <p>┌── <span className="text-sky-400 font-semibold">Frontend</span> ─── [ React · Next.js · Tailwind CSS · TypeScript ]</p>
-            <p>├── <span className="text-emerald-400 font-semibold">Backend</span> ──── [ Node.js · Express.js · Python · REST APIs ]</p>
+            <p>┌── <span className="text-sky-400 font-semibold">Frontend</span> ─── [ React · Next.js · TypeScript · Tailwind CSS · JavaScript ]</p>
+            <p>├── <span className="text-emerald-400 font-semibold">Backend</span> ──── [ Node.js · Express.js · Python · Flask · REST APIs ]</p>
             <p>├── <span className="text-purple-400 font-semibold">Database</span> ─── [ MySQL · MongoDB · Firebase ]</p>
             <p>└── <span className="text-amber-400 font-semibold">DevOps</span> ───── [ AWS · Docker · Linux · Nginx · Cloudflare ]</p>
           </div>

@@ -134,6 +134,11 @@ body {
   color: var(--color-text-primary);
 }
 
+.light ::selection {
+  background-color: rgba(0, 107, 255, 0.15);
+  color: var(--color-text-primary);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

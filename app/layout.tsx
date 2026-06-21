@@ -4,7 +4,12 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { DeveloperCLI } from "@/components/DeveloperCLI";
+import dynamic from "next/dynamic";
+
+const DeveloperCLI = dynamic(
+  () => import("@/components/DeveloperCLI").then((mod) => mod.DeveloperCLI),
+  { ssr: false }
+);
 
 const inter = Inter({
   variable: "--font-inter",
