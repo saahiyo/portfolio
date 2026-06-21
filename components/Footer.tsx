@@ -7,10 +7,12 @@ import { WavePath } from "@/components/ui/wave-path";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="py-10">
+    <footer className="py-8">
       <Container>
-        <WavePath className="w-full text-border-muted mb-10" />
-        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+        <WavePath className="w-full text-border-muted mb-6" />
+        
+        {/* Row 1: Logo & Name on the left, Social Links on the right */}
+        <div className="flex items-center justify-between w-full gap-4">
           <div className="flex items-center gap-2">
             <span className="flex h-7 w-7 items-center justify-center rounded bg-surface-strong text-[11px] font-bold text-background shadow-3 border border-border-muted">
               SA
@@ -20,11 +22,7 @@ export function Footer() {
             </span>
           </div>
 
-          <p className="order-3 text-center text-xs text-text-secondary sm:order-2">
-            Built with Next.js and Tailwind CSS
-          </p>
-
-          <div className="order-2 flex items-center gap-1.5 sm:order-3">
+          <div className="flex items-center gap-1.5">
             <Link
               href={siteConfig.github}
               target="_blank"
@@ -53,9 +51,15 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-6 text-center text-[10px] text-text-tertiary">
-          © {year} {siteConfig.name}. All rights reserved.
-        </p>
+        {/* Row 2: Copyright on the left, Tech Info on the right */}
+        <div className="mt-5 flex items-center justify-between w-full text-[9px] sm:text-[10px] text-text-tertiary border-t border-border-muted/30 pt-4 gap-4">
+          <p className="truncate">
+            © {year} {siteConfig.name}. All rights reserved.
+          </p>
+          <p className="shrink-0">
+            Built with Next.js & Tailwind CSS
+          </p>
+        </div>
       </Container>
     </footer>
   );
