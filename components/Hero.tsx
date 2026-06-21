@@ -35,25 +35,22 @@ export function Hero() {
       setVisits(parseInt(cachedVisits, 10));
     }
 
-    // 2. Fetch/increment from Counter API (using a namespace for saahiyo-portfolio)
-    const baseline = 0;
-    const namespace = "saahiyo-portfolio";
-    const key = "visits";
-
-    fetch(`https://api.counterapi.dev/v1/${namespace}/${key}/up`)
+    // 2. Fetch via same-origin proxy to avoid ad-blocker issues (Brave, etc.)
+    fetch("/api/views")
       .then((res) => {
         if (!res.ok) throw new Error("API failure");
         return res.json();
       })
       .then((data) => {
-        const count = baseline + (data.count || 0);
-        setVisits(count);
-        localStorage.setItem("visits-count", count.toString());
+        if (data.count !== null) {
+          setVisits(data.count);
+          localStorage.setItem("visits-count", data.count.toString());
+        }
       })
       .catch((err) => {
         console.error("Counter API failed, using fallback:", err);
         if (!cachedVisits) {
-          setVisits(baseline + 1);
+          setVisits(1);
         }
       });
   }, []);
