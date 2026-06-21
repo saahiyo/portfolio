@@ -10,7 +10,7 @@ export function ProjectCard({ project }: { project: Project }) {
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 transition-colors duration-fast hover:border-text-secondary/40 h-full">
       <Link
         href={`/projects/${project.slug}`}
-        className="relative block aspect-[2.2/1] sm:aspect-[16/10] overflow-hidden border-b border-border-muted bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-[-2px]"
+        className="relative block aspect-[16/10] overflow-hidden border-b border-border-muted bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-[-2px] shrink-0"
         aria-label={`View ${project.name} case study`}
       >
         <ViewTransition name={`project-image-${project.slug}`}>
@@ -38,43 +38,59 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
       </Link>
 
-      <div className="flex flex-1 flex-col p-4 sm:p-5 justify-between">
-        <div className="flex-1 flex flex-col">
-          <div className="flex items-start justify-between gap-3">
-            <div>
+      <div className="flex flex-1 flex-col p-3 sm:p-5 justify-between min-h-0">
+        <div className="flex-1 flex flex-col min-h-0">
+          <div className="flex items-start justify-between gap-2">
+            <div className="min-w-0 flex-1">
               <ViewTransition name={`project-title-${project.slug}`}>
-                <h3 className="text-sm font-semibold text-text-primary">
+                <h3 className="text-xs sm:text-sm font-semibold text-text-primary line-clamp-2 leading-tight">
                   {project.name}
                 </h3>
               </ViewTransition>
-              <p className="mt-0.5 text-[10px] font-mono text-text-tertiary">{project.tagline}</p>
+              <p className="mt-0.5 text-[9px] sm:text-[10px] font-mono text-text-tertiary truncate">
+                {project.tagline}
+              </p>
             </div>
             <Link
               href={`/projects/${project.slug}`}
               aria-label={`View ${project.name} case study`}
-              className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded border border-border-muted bg-background text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              className="inline-flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded border border-border-muted bg-background text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
             >
-              <ArrowUpRightIcon className="h-3.5 w-3.5" />
+              <ArrowUpRightIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             </Link>
           </div>
 
-          <p className="mt-2.5 text-xs leading-relaxed text-text-secondary line-clamp-2 sm:line-clamp-3">
+          <p className="mt-1.5 sm:mt-2.5 text-[11px] sm:text-xs leading-normal sm:leading-relaxed text-text-secondary line-clamp-3">
             {project.summary}
           </p>
 
-          <div className="mt-3 flex gap-1 overflow-x-auto no-scrollbar pb-0.5 sm:flex-wrap sm:overflow-x-visible">
-            {project.tech.map((t) => (
-              <span
-                key={t}
-                className="rounded border border-border-muted bg-background px-1.5 py-0.5 font-mono text-[9px] sm:text-[10px] text-text-secondary transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary shrink-0"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+          {(() => {
+            const maxTags = 5;
+            const hasMore = project.tech.length > maxTags;
+            const visibleTech = hasMore ? project.tech.slice(0, maxTags - 1) : project.tech;
+            const remainingCount = project.tech.length - visibleTech.length;
+
+            return (
+              <div className="mt-2 sm:mt-3 flex flex-nowrap gap-1 overflow-hidden pb-0.5 items-center">
+                {visibleTech.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded border border-border-muted bg-background px-1 sm:px-1.5 py-0.5 font-mono text-[8px] sm:text-[10px] text-text-secondary transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary shrink-0"
+                  >
+                    {t}
+                  </span>
+                ))}
+                {hasMore && (
+                  <span className="rounded border border-border-muted bg-background/50 px-1 sm:px-1.5 py-0.5 font-mono text-[8px] sm:text-[10px] text-text-tertiary shrink-0 font-medium">
+                    +{remainingCount}
+                  </span>
+                )}
+              </div>
+            );
+          })()}
         </div>
 
-        <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-3 border-t border-border-muted">
+        <div className="mt-auto grid grid-cols-2 gap-1.5 pt-2 sm:pt-3 border-t border-border-muted shrink-0">
           {project.links.map((link) => {
             const isGithub = link.type === "github";
             return (
@@ -83,18 +99,18 @@ export function ProjectCard({ project }: { project: Project }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-1.5 rounded px-2 py-0.75 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-medium transition-all duration-fast active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
+                className={`inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded py-1 sm:py-1.5 text-[9px] sm:text-[11px] font-medium transition-all duration-fast active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
                   isGithub
                     ? "border border-border-muted bg-background text-text-primary shadow-3 hover:bg-surface-strong hover:text-background"
                     : "border border-transparent bg-surface-strong text-background shadow-2 hover:bg-text-primary"
                 }`}
               >
                 {isGithub ? (
-                  <GitHubIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                  <GitHubIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" />
                 ) : (
-                  <ExternalLinkIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                  <ExternalLinkIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" />
                 )}
-                {link.label}
+                <span className="truncate">{link.label}</span>
               </Link>
             );
           })}
