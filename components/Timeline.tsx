@@ -81,7 +81,7 @@ export function Timeline() {
               <FadeIn key={m.title} direction="up" distance={20} className="w-full">
                 <li
                   className={`relative grid gap-4 pl-8 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0 ${
-                    i === milestones.length - 1 ? "pb-0" : "pb-10"
+                    i === milestones.length - 1 ? "pb-0" : "pb-4"
                   }`}
                 >
                   {/* Circle Node (Centered on the line) */}
