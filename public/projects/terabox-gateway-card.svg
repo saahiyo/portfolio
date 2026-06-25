@@ -1,30 +1,127 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="sans-serif">
-  <rect width="1600" height="1000" fill="#0B0F19"/>
+  <rect width="1600" height="1000" fill="#0d0d0d"/>
   <defs>
-      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="M40 0H0V40" fill="none" stroke="#1F2937" stroke-opacity="0.4" stroke-width="1"/>
-      </pattern>
-      <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
-      </linearGradient>
-      <linearGradient id="panelg" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="#161f31"/>
-        <stop offset="100%" stop-color="#111827"/>
-      </linearGradient>
-    </defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#262626" stroke-opacity="0.3" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
   <rect width="1600" height="1000" fill="url(#grid)"/>
-  <rect width="1600" height="1000" fill="url(#glow)" opacity="0.6"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+
   <!-- left text block -->
-  <g transform="translate(90,150)">
-    <rect x="0" y="0" width="120" height="34" rx="17" fill="#111827" stroke="#1F2937"/>
-    <text x="60" y="23" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Python</text>
-    <text x="0" y="110" font-size="76" font-weight="700" fill="#F9FAFB">Terabox Gateway</text>
-    <text x="0" y="165" font-size="30" fill="#9CA3AF">Link resolver API</text>
-    <g transform="translate(0,215)"><g transform="translate(0,0)"><rect width="65.19999999999999" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="32.599999999999994" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">Python</text></g><g transform="translate(73.19999999999999,0)"><rect width="57.0" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="28.5" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">Flask</text></g><g transform="translate(138.2,0)"><rect width="48.8" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="24.4" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">REST</text></g><g transform="translate(195.0,0)"><rect width="65.19999999999999" height="30" rx="7" fill="#111827" stroke="#1F2937"/><text x="32.599999999999994" y="20" font-family="monospace" font-size="13" fill="#9CA3AF" text-anchor="middle">Vercel</text></g></g>
+  <g transform="translate(90,180)">
+    <rect x="0" y="0" width="120" height="34" rx="17" fill="#161616" stroke="#2d2d2d" stroke-width="1"/>
+    <text x="60" y="22" font-family="monospace" font-size="14" fill="#ffffff" text-anchor="middle">Python</text>
+    
+    <text x="0" y="110" font-size="76" font-weight="700" fill="#ffffff">Terabox Gateway</text>
+    <text x="0" y="165" font-size="30" fill="#a3a3a3">Link resolver API</text>
+    
+    <g transform="translate(0,215)">
+      <g transform="translate(0,0)">
+        <rect width="75" height="30" rx="6" fill="#161616" stroke="#2d2d2d"/><text x="37.5" y="19" font-family="monospace" font-size="13" fill="#a3a3a3" text-anchor="middle">Python</text>
+      </g>
+      <g transform="translate(85,0)">
+        <rect width="70" height="30" rx="6" fill="#161616" stroke="#2d2d2d"/><text x="35" y="19" font-family="monospace" font-size="13" fill="#a3a3a3" text-anchor="middle">Flask</text>
+      </g>
+      <g transform="translate(165,0)">
+        <rect width="65" height="30" rx="6" fill="#161616" stroke="#2d2d2d"/><text x="32.5" y="19" font-family="monospace" font-size="13" fill="#a3a3a3" text-anchor="middle">REST</text>
+      </g>
+      <g transform="translate(240,0)">
+        <rect width="80" height="30" rx="6" fill="#161616" stroke="#2d2d2d"/><text x="40" y="19" font-family="monospace" font-size="13" fill="#a3a3a3" text-anchor="middle">Vercel</text>
+      </g>
+    </g>
   </g>
+
   <!-- mockup window -->
-  <g transform="translate(760,230)">
-    <g><rect x="0" y="0" width="720" height="36" rx="10 10 0 0" fill="#161f31" /><circle cx="18" cy="18" r="5" fill="#ef4444" opacity="0.8"/><circle cx="36" cy="18" r="5" fill="#eab308" opacity="0.8"/><circle cx="54" cy="18" r="5" fill="#22c55e" opacity="0.8"/><rect x="0" y="36" width="720" height="524" rx="0 0 10 10" fill="#111827" /><rect x="0" y="36" width="720" height="1" fill="#1F2937"/><text x="30" y="70" font-family="monospace" font-size="20" fill="#9CA3AF">{</text><text x="30" y="104" font-family="monospace" font-size="20" fill="#3B82F6">  "status": "ok",</text><text x="30" y="138" font-family="monospace" font-size="20" fill="#9CA3AF">  "file": {</text><text x="30" y="172" font-family="monospace" font-size="20" fill="#F9FAFB">    "name": "video.mp4",</text><text x="30" y="206" font-family="monospace" font-size="20" fill="#F9FAFB">    "size": "1.2 GB",</text><text x="30" y="240" font-family="monospace" font-size="20" fill="#F9FAFB">    "type": "video/mp4"</text><text x="30" y="274" font-family="monospace" font-size="20" fill="#9CA3AF">  },</text><text x="30" y="308" font-family="monospace" font-size="20" fill="#3B82F6">  "stream": "https://...</text><text x="30" y="342" font-family="monospace" font-size="20" fill="#3B82F6">  "download": "https://...</text><text x="30" y="376" font-family="monospace" font-size="20" fill="#9CA3AF">}</text></g>
+  <g transform="translate(760,200)">
+    <!-- Header -->
+    <rect x="0" y="0" width="750" height="42" rx="10" fill="#1c1c1c"/>
+    <!-- Overlap to make only top corners rounded -->
+    <rect x="0" y="30" width="750" height="12" fill="#1c1c1c"/>
+    
+    <!-- Window buttons -->
+    <circle cx="22" cy="21" r="6" fill="#ef4444" opacity="0.8"/>
+    <circle cx="42" cy="21" r="6" fill="#eab308" opacity="0.8"/>
+    <circle cx="62" cy="21" r="6" fill="#22c55e" opacity="0.8"/>
+    
+    <!-- Body -->
+    <rect x="0" y="42" width="750" height="558" rx="10" fill="#121212" stroke="#2d2d2d" stroke-width="1"/>
+    <!-- Overlap to make only bottom corners rounded -->
+    <rect x="0" y="42" width="750" height="10" fill="#121212"/>
+    <line x1="0" y1="42" x2="750" y2="42" stroke="#2d2d2d" stroke-width="1"/>
+    
+    <!-- JSON Content -->
+    <text x="40" y="85" font-family="monospace" font-size="15" fill="#737373">{</text>
+    
+    <text x="40" y="115" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">  "contact": </tspan>
+      <tspan fill="#ffffff">"@Saahiyo"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="145" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">  "endpoints": </tspan>
+      <tspan fill="#737373">{</tspan>
+    </text>
+    
+    <text x="40" y="175" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">    "/": </tspan>
+      <tspan fill="#ffffff">"API information"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="205" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">    "/api": </tspan>
+      <tspan fill="#ffffff">"Unified endpoint - file listing &amp; proxy modes"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="235" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">    "/api2": </tspan>
+      <tspan fill="#ffffff">"Fetch files with direct download links"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="265" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">    "/health": </tspan>
+      <tspan fill="#ffffff">"Health check"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="295" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">    "/help": </tspan>
+      <tspan fill="#ffffff">"Detailed usage instructions"</tspan>
+    </text>
+    
+    <text x="40" y="325" font-family="monospace" font-size="15" fill="#737373">  },</text>
+    
+    <text x="40" y="355" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">  "name": </tspan>
+      <tspan fill="#ffffff">"TeraBox API"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="385" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">  "status": </tspan>
+      <tspan fill="#22c55e">"operational"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="415" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">  "timestamp": </tspan>
+      <tspan fill="#ffffff">"2026-06-25T07:51:23.214965+00:00"</tspan>
+      <tspan fill="#737373">,</tspan>
+    </text>
+    
+    <text x="40" y="445" font-family="monospace" font-size="15">
+      <tspan fill="#a3a3a3">  "version": </tspan>
+      <tspan fill="#ffffff">"2.0"</tspan>
+    </text>
+    
+    <text x="40" y="475" font-family="monospace" font-size="15" fill="#737373">}</text>
   </g>
 </svg>
