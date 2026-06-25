@@ -17,7 +17,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : siteConfig.url
+  ),
   title: {
     default: siteConfig.title,
     template: `%s · ${siteConfig.name}`,
