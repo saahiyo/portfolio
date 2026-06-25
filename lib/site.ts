@@ -11,9 +11,9 @@ export const siteConfig = {
   resume: "/resume.pdf",
   locale: "en_US",
   nav: [
+    { label: "Home", href: "/" },
     { label: "Projects", href: "/projects" },
     { label: "About", href: "/about" },
-    { label: "Skills", href: "/skills" },
     { label: "Contact", href: "/contact" },
   ],
 } as const;
