@@ -1,12 +1,49 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { ViewTransition } from "react";
+import { useState, useEffect, ViewTransition } from "react";
 import Link from "next/link";
 import type { Project } from "@/lib/projects";
 import { GitHubIcon, ExternalLinkIcon, ArrowUpRightIcon } from "@/components/Icons";
 
+function useTheme() {
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const isLight = document.documentElement.classList.contains("light");
+      setTheme(isLight ? "light" : "dark");
+    };
+
+    checkTheme();
+
+    window.addEventListener("theme-change", checkTheme);
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      window.removeEventListener("theme-change", checkTheme);
+      observer.disconnect();
+    };
+  }, []);
+
+  return theme;
+}
+
 export function ProjectCard({ project }: { project: Project }) {
+  const theme = useTheme();
+  const resolvedSrc = project.cardImage
+    ? typeof project.cardImage === "string"
+      ? project.cardImage
+      : theme === "light"
+      ? project.cardImage.light
+      : project.cardImage.dark
+    : "";
+
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 transition-colors duration-fast hover:border-text-secondary/40 h-full">
       <Link
@@ -15,9 +52,9 @@ export function ProjectCard({ project }: { project: Project }) {
         aria-label={`View ${project.name} case study`}
       >
         <ViewTransition name={`project-image-${project.slug}`}>
-          {project.cardImage ? (
+          {resolvedSrc ? (
             <img
-              src={project.cardImage}
+              src={resolvedSrc}
               alt={`${project.name} preview`}
               className="w-full h-full object-cover transition-transform duration-fast group-hover:scale-[1.02]"
             />

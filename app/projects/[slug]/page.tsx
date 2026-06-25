@@ -26,6 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!project) {
     return { title: "Project Not Found" };
   }
+  const ogImageUrl = typeof project.cardImage === "string"
+    ? project.cardImage
+    : project.cardImage.dark;
+
   return {
     title: project.name,
     description: project.summary,
@@ -34,13 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${project.name} · ${siteConfig.name}`,
       description: project.summary,
       url: `/projects/${project.slug}`,
-      images: [{ url: project.cardImage, alt: project.name }],
+      images: [{ url: ogImageUrl, alt: project.name }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.name} · ${siteConfig.name}`,
       description: project.summary,
-      images: [project.cardImage],
+      images: [ogImageUrl],
     },
   };
 }

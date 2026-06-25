@@ -1,7 +1,35 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
 
-import { ViewTransition } from "react";
+import { useState, useEffect, ViewTransition } from "react";
+
+function useTheme() {
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const isLight = document.documentElement.classList.contains("light");
+      setTheme(isLight ? "light" : "dark");
+    };
+
+    checkTheme();
+
+    window.addEventListener("theme-change", checkTheme);
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      window.removeEventListener("theme-change", checkTheme);
+      observer.disconnect();
+    };
+  }, []);
+
+  return theme;
+}
 
 export function SharedImage({
   slug,
@@ -9,15 +37,18 @@ export function SharedImage({
   alt,
 }: {
   slug: string;
-  src: string;
+  src: string | { light: string; dark: string };
   alt: string;
 }) {
+  const theme = useTheme();
+  const resolvedSrc = src ? (typeof src === "string" ? src : theme === "light" ? src.light : src.dark) : "";
+
   return (
     <ViewTransition name={`project-image-${slug}`}>
       <div className="relative w-full aspect-[16/9] flex items-center justify-center bg-zinc-950/40 text-text-tertiary select-none overflow-hidden">
-        {src ? (
+        {resolvedSrc ? (
           <img
-            src={src}
+            src={resolvedSrc}
             alt={alt}
             className="w-full h-full object-cover"
           />

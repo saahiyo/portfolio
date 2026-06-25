@@ -16,7 +16,7 @@ export interface Project {
   description: string;
   tech: string[];
   featured: boolean;
-  cardImage: string;
+  cardImage: string | { light: string; dark: string };
   screenshots: { src: string; alt: string; caption: string }[];
   overview: string;
   features: string[];
@@ -38,7 +38,10 @@ export const projects: Project[] = [
       "BCA Notes is a full-stack study platform that organizes Bachelor of Computer Applications course material into clean, searchable, semester-wise collections. It pairs a Next.js frontend with a Firebase backend for auth and content delivery.",
     tech: ["Next.js", "React", "Tailwind CSS", "Firebase", "Node.js"],
     featured: true,
-    cardImage: "/projects/bcanotes-home.png",
+    cardImage: {
+      light: "/projects/bcanotes-home.png",
+      dark: "/projects/bcanotes-home-d.png",
+    },
     screenshots: [
       {
         src: "/projects/bca-notes-1.svg",
