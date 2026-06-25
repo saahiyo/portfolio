@@ -234,22 +234,15 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Premium PFP Shimmer Sweep Animation */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-150%) skewX(-20deg);
-  }
-  100% {
-    transform: translateX(150%) skewX(-20deg);
-  }
-}
-
+/* Premium PFP Shimmer Sweep Transition */
 .animate-shimmer {
   transform: translateX(-150%) skewX(-20deg);
   pointer-events: none;
+  transition: none;
 }
 
 .relative:hover .animate-shimmer {
-  animation: shimmer 1s ease-in-out forwards;
+  transform: translateX(150%) skewX(-20deg);
+  transition: transform 1s ease-in-out;
 }
 
