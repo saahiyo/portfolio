@@ -66,13 +66,13 @@ export function Timeline() {
           />
         </FadeIn>
 
-        <div ref={containerRef} className="relative mt-16 max-w-[860px]">
+        <div ref={containerRef} className="relative mt-16 max-w-215">
           {/* Background Track Line (Dashed) */}
-          <div className="absolute left-[5px] top-2 bottom-2 w-px border-l border-dashed border-text-secondary/20 sm:left-[172px]" />
+          <div className="absolute left-1.25 top-2 bottom-2 w-px border-l border-dashed border-text-secondary/20 sm:left-43" />
 
           {/* Scroll-Following Progress Line (Solid) */}
           <motion.div
-            className="absolute left-[5px] top-2 bottom-2 w-[1.5px] bg-text-secondary origin-top sm:left-[172px]"
+            className="absolute left-1.25 top-2 bottom-2 w-[1.5px] bg-text-secondary origin-top sm:left-43"
             style={{ scaleY }}
           />
 
@@ -87,7 +87,7 @@ export function Timeline() {
                   {/* Circle Node (Centered on the line) */}
                   <span
                     aria-hidden
-                    className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 rounded-full border border-text-secondary/50 bg-background transition-colors duration-fast sm:left-[167px]"
+                    className="absolute left-0 top-1.5 z-10 h-2.5 w-2.5 rounded-full border border-text-secondary/50 bg-background transition-colors duration-fast sm:left-41.75"
                   />
 
                   {/* Left side: Year */}
@@ -111,7 +111,7 @@ export function Timeline() {
                       </p>
                       <Link
                         href={m.href}
-                        className="mt-3.5 inline-flex items-center gap-1 rounded border border-border-muted bg-background px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+                        className="mt-3.5 inline-flex items-center gap-1 rounded border border-border-muted bg-background px-2 py-1 text-[11px] font-medium text-text-secondary shadow-3 transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-text-primary"
                       >
                         View case study
                         <ArrowUpRightIcon className="h-3 w-3" />
