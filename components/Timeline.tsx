@@ -18,25 +18,25 @@ type Milestone = {
 
 const milestones: Milestone[] = [
   {
-    year: "2023",
+    year: "Jun 11, 2026",
+    title: "TeraPlay",
+    category: "Frontend / Streaming",
+    body: "Created a React + Vite streaming frontend that plays resolved Terabox media over HLS.js with a fast, responsive player UX.",
+    href: "/projects/teraplay",
+  },
+  {
+    year: "Apr 13, 2026",
     title: "BCA Notes",
     category: "Full-Stack Platform",
     body: "Designed and shipped a semester-wise study notes platform for BCA students with search, auth, and a mobile-first reader.",
     href: "/projects/bca-notes",
   },
   {
-    year: "2024",
+    year: "Oct 17, 2025",
     title: "Terabox Gateway",
     category: "Backend API & Cloud",
     body: "Built a Flask API that resolves Terabox share links into streamable URLs, deployed redundantly across Vercel and Render.",
     href: "/projects/terabox-gateway",
-  },
-  {
-    year: "2024",
-    title: "TeraPlay",
-    category: "Frontend / Streaming",
-    body: "Created a React + Vite streaming frontend that plays resolved Terabox media over HLS.js with a fast, responsive player UX.",
-    href: "/projects/teraplay",
   },
 ];
 
@@ -79,7 +79,11 @@ export function Timeline() {
           <StaggerContainer staggerDelay={0.1} className="space-y-0" tagName="ol">
             {milestones.map((m, i) => (
               <FadeIn key={m.title} direction="up" distance={20} className="w-full">
-                <li className="relative grid gap-4 pb-16 pl-8 last:pb-0 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0">
+                <li
+                  className={`relative grid gap-4 pl-8 sm:grid-cols-[140px_1fr] sm:gap-8 sm:pl-0 ${
+                    i === milestones.length - 1 ? "pb-0" : "pb-10"
+                  }`}
+                >
                   {/* Circle Node (Centered on the line) */}
                   <span
                     aria-hidden
