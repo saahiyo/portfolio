@@ -39,17 +39,17 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "Tailwind CSS", "Firebase", "Node.js"],
     featured: true,
     cardImage: {
-      light: "/projects/bcanotes-home.png",
-      dark: "/projects/bcanotes-home-d.png",
+      light: "/projects/bca-notes/bcanotes-home.png",
+      dark: "/projects/bca-notes/bcanotes-home-d.png",
     },
     screenshots: [
       {
-        src: "/projects/bca-notes-1.svg",
+        src: "/projects/bca-notes/bcanotes-home.png",
         alt: "BCA Notes homepage showing semester cards",
         caption: "Homepage with semester and subject navigation",
       },
       {
-        src: "/projects/bca-notes-2.svg",
+        src: "/projects/bca-notes/bca-notes-2.svg",
         alt: "BCA Notes reader view for a subject",
         caption: "Clean reading view with topic sidebar",
       },
@@ -102,15 +102,15 @@ export const projects: Project[] = [
       "Terabox Gateway is a Python/Flask service that takes a Terabox share link and returns direct, streamable media URLs. It handles link resolution, metadata extraction, and CORS-safe responses, and is deployed across Vercel and Render for redundancy.",
     tech: ["Python", "Flask", "REST API", "Vercel", "Render", "Cloudflare"],
     featured: true,
-    cardImage: "/projects/terabox-gateway-card.svg",
+    cardImage: "/projects/terabox-gateway/terabox-gateway-card.svg",
     screenshots: [
       {
-        src: "/projects/terabox-gateway-1.svg",
+        src: "/projects/terabox-gateway/terabox-gateway-1.svg",
         alt: "API response JSON for a resolved Terabox link",
         caption: "Resolver endpoint returning direct media URLs and metadata",
       },
       {
-        src: "/projects/terabox-gateway-2.svg",
+        src: "/projects/terabox-gateway/terabox-gateway-2.svg",
         alt: "Deployment diagram across Vercel and Render",
         caption: "Redundant deployment across two cloud providers",
       },
@@ -164,15 +164,15 @@ export const projects: Project[] = [
       "TeraPlay is the consumer-facing frontend that pairs with Terabox Gateway. Built with React, Vite, and Tailwind CSS, it resolves a Terabox link and plays the resulting stream with HLS.js, focusing on speed and a clean playback UX.",
     tech: ["React", "Vite", "Tailwind CSS", "HLS.js", "JavaScript"],
     featured: true,
-    cardImage: "/projects/teraplay-card.png",
+    cardImage: "/projects/teraplay/teraplay-card.png",
     screenshots: [
       {
-        src: "/projects/teraplay-1.svg",
+        src: "/projects/teraplay/teraplay-1.svg",
         alt: "TeraPlay player interface playing a video",
         caption: "Player view with custom controls and link input",
       },
       {
-        src: "/projects/teraplay-2.svg",
+        src: "/projects/teraplay/teraplay-2.svg",
         alt: "TeraPlay mobile responsive layout",
         caption: "Responsive layout adapting to mobile screens",
       },
