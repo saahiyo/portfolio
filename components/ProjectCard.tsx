@@ -45,10 +45,10 @@ export function ProjectCard({ project }: { project: Project }) {
     : "";
 
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-border-muted bg-surface-raised shadow-3 transition-colors duration-fast hover:border-text-secondary/40 h-full">
+    <article className="group rounded-xl border bg-[rgba(0,0,0,0.005)] border-[rgba(0,0,0,0.05)] dark:bg-[rgba(255,255,255,0.02)] dark:border-[rgba(255,255,255,0.06)] transition-all duration-200 ease-out flex flex-col h-full overflow-hidden">
       <Link
         href={`/projects/${project.slug}`}
-        className="relative block aspect-[16/10] overflow-hidden border-b border-border-muted bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-[-2px] shrink-0"
+        className="relative block aspect-video overflow-hidden border-b border-border-muted bg-background focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary focus-visible:outline-offset-[-2px] shrink-0"
         aria-label={`View ${project.name} case study`}
       >
         <ViewTransition name={`project-image-${project.slug}`}>
@@ -84,82 +84,67 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
       </Link>
 
-      <div className="flex flex-1 flex-col p-3 sm:p-5 justify-between min-h-0">
+      <div className="flex flex-1 flex-col overflow-visible px-4 sm:px-5 py-4 sm:py-5 justify-between min-h-0">
         <div className="flex-1 flex flex-col min-h-0">
-          <div className="flex items-start justify-between gap-2">
+          <div className="flex justify-between items-start mb-2.5 gap-4">
             <div className="min-w-0 flex-1">
               <ViewTransition name={`project-title-${project.slug}`}>
-                <h3 className="text-xs sm:text-sm font-semibold text-text-primary line-clamp-2 leading-tight">
-                  {project.name}
+                <h3 className="text-[14px] sm:text-[15px] font-semibold text-text-primary leading-tight hover:text-text-secondary transition-colors">
+                  <Link href={`/projects/${project.slug}`}>
+                    {project.name}
+                  </Link>
                 </h3>
               </ViewTransition>
               <p className="mt-0.5 text-[9px] sm:text-[10px] font-mono text-text-tertiary truncate">
                 {project.tagline}
               </p>
             </div>
-            <Link
-              href={`/projects/${project.slug}`}
-              aria-label={`View ${project.name} case study`}
-              className="inline-flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded border border-border-muted bg-background text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-            >
-              <ArrowUpRightIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-            </Link>
+
+            {/* Links Row with Tooltips */}
+            <div className="flex items-center gap-3 shrink-0">
+              {project.links.map((link) => {
+                const isGithub = link.type === "github";
+                return (
+                  <div key={link.label} className="relative group/tooltip inline-flex">
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-text-secondary hover:text-text-primary transition-colors duration-150"
+                      aria-label={link.label}
+                    >
+                      {isGithub ? (
+                        <GitHubIcon className="h-4.5 w-4.5" />
+                      ) : (
+                        <ExternalLinkIcon className="h-4.5 w-4.5" />
+                      )}
+                    </a>
+
+                    {/* Tooltip */}
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 text-[10px] font-medium rounded-md whitespace-nowrap pointer-events-none opacity-0 translate-y-1 group-hover/tooltip:opacity-100 group-hover/tooltip:translate-y-0 transition-all duration-150 bg-zinc-900 text-zinc-100 shadow-lg border border-zinc-800 z-50">
+                      {link.label}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[4px] border-t-zinc-900" />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <p className="mt-1.5 sm:mt-2.5 text-[11px] sm:text-xs leading-normal sm:leading-relaxed text-text-secondary line-clamp-3">
+          <p className="text-text-secondary text-[12.5px] sm:text-[13px] leading-relaxed mb-4 max-w-[22rem] line-clamp-3">
             {project.summary}
           </p>
-
-          {(() => {
-            const maxTags = 5;
-            const hasMore = project.tech.length > maxTags;
-            const visibleTech = hasMore ? project.tech.slice(0, maxTags - 1) : project.tech;
-            const remainingCount = project.tech.length - visibleTech.length;
-
-            return (
-              <div className="mt-2 sm:mt-3 flex flex-nowrap gap-1 overflow-hidden pb-0.5 items-center">
-                {visibleTech.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded border border-border-muted bg-background px-1 sm:px-1.5 py-0.5 font-mono text-[8px] sm:text-[10px] text-text-secondary transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary shrink-0"
-                  >
-                    {t}
-                  </span>
-                ))}
-                {hasMore && (
-                  <span className="rounded border border-border-muted bg-background/50 px-1 sm:px-1.5 py-0.5 font-mono text-[8px] sm:text-[10px] text-text-tertiary shrink-0 font-medium">
-                    +{remainingCount}
-                  </span>
-                )}
-              </div>
-            );
-          })()}
         </div>
 
-        <div className="mt-auto grid grid-cols-2 gap-1.5 pt-2 sm:pt-3 border-t border-border-muted shrink-0">
-          {project.links.map((link) => {
-            const isGithub = link.type === "github";
-            return (
-              <Link
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-1 sm:gap-1.5 rounded py-1 sm:py-1.5 text-[9px] sm:text-[11px] font-medium transition-all duration-fast active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
-                  isGithub
-                    ? "border border-border-muted bg-background text-text-primary shadow-3 hover:bg-surface-strong hover:text-background"
-                    : "border border-transparent bg-surface-strong text-background shadow-2 hover:bg-text-primary"
-                }`}
-              >
-                {isGithub ? (
-                  <GitHubIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" />
-                ) : (
-                  <ExternalLinkIcon className="h-2.5 w-2.5 sm:h-3 sm:w-3 shrink-0" />
-                )}
-                <span className="truncate">{link.label}</span>
-              </Link>
-            );
-          })}
+        <div className="mt-auto flex flex-wrap gap-1.5 pt-4 border-t border-border-muted/50">
+          {project.tech.map((t) => (
+            <span
+              key={t}
+              className="rounded-md border border-border-muted bg-background/50 px-2 py-0.5 font-mono text-[9px] text-text-secondary transition-colors duration-fast hover:border-text-secondary/40 hover:text-text-primary"
+            >
+              {t}
+            </span>
+          ))}
         </div>
       </div>
     </article>
