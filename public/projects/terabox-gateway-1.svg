@@ -1,9 +1,99 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" font-family="sans-serif">
-  <rect width="1600" height="1000" fill="#0B0F19"/>
-  <rect x="0" y="0" width="1600" height="56" fill="#161f31"/>
-  <rect x="0" y="56" width="1600" height="1" fill="#1F2937"/>
+  <rect width="1600" height="1000" fill="#0d0d0d"/>
+  <rect x="0" y="0" width="1600" height="56" fill="#1c1c1c"/>
+  <rect x="0" y="56" width="1600" height="1" fill="#2d2d2d"/>
   <circle cx="30" cy="28" r="6" fill="#ef4444" opacity="0.8"/>
   <circle cx="54" cy="28" r="6" fill="#eab308" opacity="0.8"/>
   <circle cx="78" cy="28" r="6" fill="#22c55e" opacity="0.8"/>
-  <rect x="120" y="16" width="900" height="26" rx="8" fill="#111827" stroke="#1F2937"/>
-  <text x="140" y="34" font-family="monospace" font-size="14" fill="#9CA3AF">terabridge-api.vercel.app/api/resolve</text><rect x="0" y="57" width="1600" height="70" fill="#111827"/><rect x="60" y="74" width="70" height="34" rx="7" fill="#3B82F6"/><text x="95" y="96" font-size="14" fill="#fff" text-anchor="middle">GET</text><rect x="150" y="74" width="900" height="34" rx="7" fill="#0B0F19" stroke="#1F2937"/><text x="170" y="96" font-family="monospace" font-size="15" fill="#9CA3AF">/api/resolve?url=terabox.com/share/...</text><rect x="1070" y="74" width="110" height="34" rx="7" fill="#3B82F6"/><text x="1125" y="96" font-size="14" fill="#fff" text-anchor="middle">Send</text><rect x="60" y="160" width="1480" height="780" rx="16" fill="#111827" stroke="#1F2937"/><rect x="60" y="160" width="1480" height="46" rx="16" fill="#161f31"/><rect x="60" y="200" width="1480" height="6" fill="#161f31"/><text x="84" y="189" font-family="monospace" font-size="15" fill="#9CA3AF">Response  200 OK  ·  application/json</text><text x="100" y="260" font-family="monospace" font-size="22" fill="#9CA3AF">{</text><text x="100" y="310" font-family="monospace" font-size="22" fill="#22c55e">  "success": true,</text><text x="100" y="360" font-family="monospace" font-size="22" fill="#9CA3AF">  "data": {</text><text x="100" y="410" font-family="monospace" font-size="22" fill="#F9FAFB">    "title": "lecture_07.mp4",</text><text x="100" y="460" font-family="monospace" font-size="22" fill="#F9FAFB">    "size": "1.24 GB",</text><text x="100" y="510" font-family="monospace" font-size="22" fill="#F9FAFB">    "mime": "video/mp4",</text><text x="100" y="560" font-family="monospace" font-size="22" fill="#3B82F6">    "stream_url": "https://d.terabox.../play.m3u8",</text><text x="100" y="610" font-family="monospace" font-size="22" fill="#3B82F6">    "download_url": "https://d.terabox.../file.mp4",</text><text x="100" y="660" font-family="monospace" font-size="22" fill="#F9FAFB">    "thumbnail": "https://.../thumb.jpg"</text><text x="100" y="710" font-family="monospace" font-size="22" fill="#9CA3AF">  }</text><text x="100" y="760" font-family="monospace" font-size="22" fill="#9CA3AF">}</text></svg>
+  <rect x="120" y="14" width="900" height="28" rx="6" fill="#121212" stroke="#2d2d2d" stroke-width="1"/>
+  <text x="140" y="32" font-family="monospace" font-size="14" fill="#8f8f8f">tera-core.vercel.app/api</text>
+  
+  <!-- Request row -->
+  <rect x="0" y="57" width="1600" height="70" fill="#161616"/>
+  <rect x="60" y="75" width="70" height="34" rx="6" fill="#ffffff"/>
+  <text x="95" y="97" font-family="sans-serif" font-size="14" font-weight="700" fill="#0d0d0d" text-anchor="middle">GET</text>
+  
+  <rect x="150" y="75" width="900" height="34" rx="6" fill="#121212" stroke="#2d2d2d" stroke-width="1"/>
+  <text x="170" y="97" font-family="monospace" font-size="15" fill="#8f8f8f">https://tera-core.vercel.app/api</text>
+  
+  <rect x="1070" y="75" width="110" height="34" rx="6" fill="#ffffff"/>
+  <text x="1125" y="97" font-family="sans-serif" font-size="14" font-weight="600" fill="#0d0d0d" text-anchor="middle">Send</text>
+  
+  <!-- Response container -->
+  <rect x="60" y="160" width="1480" height="780" rx="12" fill="#121212" stroke="#2d2d2d" stroke-width="1"/>
+  <!-- Response header -->
+  <rect x="60" y="160" width="1480" height="46" rx="12" fill="#1c1c1c"/>
+  <rect x="60" y="190" width="1480" height="16" fill="#1c1c1c"/>
+  <rect x="60" y="205" width="1480" height="1" fill="#2d2d2d"/>
+  <text x="84" y="188" font-family="monospace" font-size="15" fill="#8f8f8f">Response  200 OK  ·  application/json</text>
+  
+  <!-- JSON content -->
+  <text x="100" y="260" font-family="monospace" font-size="20" fill="#737373">{</text>
+  
+  <text x="100" y="295" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">  "contact": </tspan>
+    <tspan fill="#ffffff">"@Saahiyo"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="330" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">  "endpoints": </tspan>
+    <tspan fill="#737373">{</tspan>
+  </text>
+  
+  <text x="100" y="365" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">    "/": </tspan>
+    <tspan fill="#ffffff">"API information"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="400" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">    "/api": </tspan>
+    <tspan fill="#ffffff">"Unified endpoint - file listing and proxy modes (resolve, page, api, stream, segment)"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="435" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">    "/api2": </tspan>
+    <tspan fill="#ffffff">"Fetch files with direct download links"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="470" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">    "/health": </tspan>
+    <tspan fill="#ffffff">"Health check"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="505" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">    "/help": </tspan>
+    <tspan fill="#ffffff">"Detailed usage instructions"</tspan>
+  </text>
+  
+  <text x="100" y="540" font-family="monospace" font-size="20" fill="#737373">  },</text>
+  
+  <text x="100" y="575" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">  "name": </tspan>
+    <tspan fill="#ffffff">"TeraBox API"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="610" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">  "status": </tspan>
+    <tspan fill="#22c55e">"operational"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="645" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">  "timestamp": </tspan>
+    <tspan fill="#ffffff">"2026-06-25T07:51:23.214965+00:00"</tspan>
+    <tspan fill="#737373">,</tspan>
+  </text>
+  
+  <text x="100" y="680" font-family="monospace" font-size="20">
+    <tspan fill="#a3a3a3">  "version": </tspan>
+    <tspan fill="#ffffff">"2.0"</tspan>
+  </text>
+  
+  <text x="100" y="715" font-family="monospace" font-size="20" fill="#737373">}</text>
+</svg>

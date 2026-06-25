@@ -86,7 +86,7 @@ export const projects: Project[] = [
       },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/saahiyo/bca-notes", type: "github" },
+      { label: "GitHub", href: "https://github.com/saahiyo/bcanotes", type: "github" },
       { label: "Live Demo", href: "https://bcanotes.tech", type: "demo" },
     ],
   },
@@ -148,8 +148,8 @@ export const projects: Project[] = [
       },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/saahiyo/terabridge-api", type: "github" },
-      { label: "API Docs", href: "https://terabridge-api.vercel.app", type: "demo" },
+      { label: "GitHub", href: "https://github.com/saahiyo/terabox-gateway  ", type: "github" },
+      { label: "API Docs", href: "https://tera-core.vercel.app/", type: "demo" },
     ],
   },
   {
@@ -164,7 +164,7 @@ export const projects: Project[] = [
       "TeraPlay is the consumer-facing frontend that pairs with Terabox Gateway. Built with React, Vite, and Tailwind CSS, it resolves a Terabox link and plays the resulting stream with HLS.js, focusing on speed and a clean playback UX.",
     tech: ["React", "Vite", "Tailwind CSS", "HLS.js", "JavaScript"],
     featured: true,
-    cardImage: "/projects/teraplay-card.svg",
+    cardImage: "/projects/teraplay-card.png",
     screenshots: [
       {
         src: "/projects/teraplay-1.svg",
@@ -209,8 +209,8 @@ export const projects: Project[] = [
       },
     ],
     links: [
-      { label: "GitHub", href: "https://github.com/saahiyo/teraplay", type: "github" },
-      { label: "Live Demo", href: "https://teraplay.ansarishakir.vercel.app", type: "demo" },
+      { label: "GitHub", href: "https://github.com/saahiyo-cloud/teraplay", type: "github" },
+      { label: "Live Demo", href: "https://teraplay-mocha.vercel.app/", type: "demo" },
     ],
   },
 ];
