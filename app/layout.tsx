@@ -4,7 +4,6 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { DeveloperCLI } from "@/components/DeveloperCLI";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -159,7 +158,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <DeveloperCLI />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
