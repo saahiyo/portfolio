@@ -91,6 +91,8 @@ export function Hero() {
                     alt="Shakir Ansari Avatar"
                     className="h-full w-full object-cover"
                   />
+                  {/* Premium Shimmer Sweep Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/10 to-transparent pointer-events-none -translate-x-full animate-shimmer" />
                 </div>
                 <div>
                   <TextReveal

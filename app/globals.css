@@ -234,3 +234,20 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+/* Premium PFP Shimmer Sweep Animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  30% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
