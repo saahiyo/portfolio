@@ -55,7 +55,7 @@ export function Skills() {
                 {/* Tooltip */}
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 text-[10px] font-medium rounded-md whitespace-nowrap pointer-events-none opacity-0 translate-y-1 group-hover/tooltip:opacity-100 group-hover/tooltip:translate-y-0 transition-all duration-150 bg-zinc-900 text-zinc-100 shadow-lg border border-zinc-800 z-50">
                   {skill.name}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-[4px] border-t-zinc-900" />
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-4 border-t-zinc-900" />
                 </div>
               </div>
             </FadeIn>
