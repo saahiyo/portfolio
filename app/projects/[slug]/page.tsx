@@ -112,7 +112,7 @@ export default async function ProjectPage({ params }: Props) {
                 {project.name}
               </SharedTitle>
               <p className="mt-2 text-xs font-mono uppercase tracking-wider text-text-secondary">{project.tagline}</p>
-              <p className="mt-4 text-xs leading-relaxed text-text-secondary">
+              <p className="mt-4 text-sm leading-relaxed text-text-secondary sm:text-base">
                 {project.description}
               </p>
 
@@ -158,7 +158,7 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Overview */}
         <Block index="01" title="Overview">
-          <p className="text-xs leading-relaxed text-text-secondary">
+          <p className="text-sm leading-relaxed text-text-secondary sm:text-base">
             {project.overview}
           </p>
         </Block>
@@ -174,7 +174,7 @@ export default async function ProjectPage({ params }: Props) {
                 <span className="mt-0.5 inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded bg-surface-strong text-background shadow-2">
                   <CheckIcon className="h-2.5 w-2.5" />
                 </span>
-                <span className="text-xs text-text-primary leading-tight">{f}</span>
+                <span className="text-sm leading-relaxed text-text-primary">{f}</span>
               </li>
             ))}
           </ul>
@@ -188,7 +188,7 @@ export default async function ProjectPage({ params }: Props) {
                 <span className="mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded border border-border-muted bg-surface-raised text-text-primary shadow-3">
                   <LayersIcon className="h-2.5 w-2.5" />
                 </span>
-                <span className="text-xs leading-relaxed text-text-secondary">{a}</span>
+                <span className="text-sm leading-relaxed text-text-secondary">{a}</span>
               </li>
             ))}
           </ul>
@@ -237,10 +237,10 @@ export default async function ProjectPage({ params }: Props) {
                 key={c.title}
                 className="rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40"
               >
-                <h3 className="text-xs font-semibold text-text-primary">
+                <h3 className="text-sm font-semibold text-text-primary">
                   {c.title}
                 </h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-text-secondary">
+                <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
                   {c.body}
                 </p>
               </div>
