@@ -25,14 +25,30 @@ const heroRoles = [
   "Media Apps",
 ];
 
+interface GitHubStats {
+  followers: number;
+  following: number;
+  repos: number;
+}
+
 export function Hero() {
   const [visits, setVisits] = useState<number | null>(null);
+  const [githubStats, setGithubStats] = useState<GitHubStats | null>(null);
 
   useEffect(() => {
     // 1. Load from cache first for instant paint
     const cachedVisits = localStorage.getItem("visits-count");
     if (cachedVisits) {
       setVisits(parseInt(cachedVisits, 10));
+    }
+
+    const cachedStats = localStorage.getItem("github-stats");
+    if (cachedStats) {
+      try {
+        setGithubStats(JSON.parse(cachedStats));
+      } catch {
+        // ignore JSON parse error
+      }
     }
 
     // 2. Fetch via same-origin proxy to avoid ad-blocker issues (Brave, etc.)
@@ -53,6 +69,27 @@ export function Hero() {
           setVisits(1);
         }
       });
+
+    // 3. Fetch GitHub stats via backend proxy
+    fetch("/api/github")
+      .then((res) => {
+        if (!res.ok) throw new Error("API failure");
+        return res.json();
+      })
+      .then((data) => {
+        if (data.followers !== null) {
+          const stats = {
+            followers: data.followers,
+            following: data.following,
+            repos: data.repos,
+          };
+          setGithubStats(stats);
+          localStorage.setItem("github-stats", JSON.stringify(stats));
+        }
+      })
+      .catch((err) => {
+        console.error("GitHub API failed:", err);
+      });
   }, []);
 
   return (
@@ -72,7 +109,7 @@ export function Hero() {
           <StaggerContainer delayChildren={0.1} staggerDelay={0.08}>
             {/* Header pill link and Availability badge */}
             <FadeIn direction="up" distance={15}>
-              <div className="mb-6 flex flex-row items-center justify-center gap-2.5 text-center">
+              <div className="mb-6 flex flex-wrap items-center justify-center gap-2.5 text-center">
                 <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
@@ -86,6 +123,21 @@ export function Hero() {
                   <span className="h-1 w-1 rounded-full bg-sky-500" />
                   <span>{visits !== null ? `${visits.toLocaleString()} views` : "--- views"}</span>
                 </div>
+
+                {/* GitHub stats pill */}
+                {githubStats && (
+                  <Link
+                    href={siteConfig.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3 hover:border-text-secondary/40 hover:text-text-primary transition-all active:scale-95"
+                  >
+                    <GitHubIcon className="h-3 w-3 shrink-0 text-text-secondary" />
+                    <span>{githubStats.followers} followers</span>
+                    <span className="h-1.5 w-px bg-border-muted" />
+                    <span>{githubStats.repos} repos</span>
+                  </Link>
+                )}
               </div>
             </FadeIn>
 
