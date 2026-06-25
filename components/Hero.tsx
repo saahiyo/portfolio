@@ -105,135 +105,147 @@ export function Hero() {
       />
 
       <Container>
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="max-w-2xl text-left">
           <StaggerContainer delayChildren={0.1} staggerDelay={0.08}>
-            {/* Header pill link and Availability badge */}
+            
+            {/* Header (Avatar + Name & Title) */}
             <FadeIn direction="up" distance={15}>
-              <div className="mb-6 flex flex-wrap items-center justify-center gap-2.5 text-center">
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
-                  <span className="relative flex h-1.5 w-1.5">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
-                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                  </span>
-                  Available for projects
+              <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-border-muted bg-surface-raised shadow-3">
+                  <img
+                    src="https://github.com/saahiyo.png"
+                    alt="Shakir Ansari Avatar"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
-
-                {/* Views count pill */}
-                <div className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3">
-                  <span className="h-1 w-1 rounded-full bg-sky-500" />
-                  <span>{visits !== null ? `${visits.toLocaleString()} views` : "--- views"}</span>
+                <div>
+                  <TextReveal
+                    text="Shakir Ansari"
+                    as="h1"
+                    className="text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl"
+                  />
+                  <div className="mt-1.5 flex flex-wrap items-center font-mono text-[10px] uppercase tracking-wider text-text-secondary">
+                    <span>Full-Stack Developer • Building&nbsp;</span>
+                    <TextMorph
+                      values={heroRoles}
+                      interval={2800}
+                      charDelay={0.035}
+                      charDuration={0.25}
+                    />
+                  </div>
                 </div>
-
-                {/* GitHub stats pill */}
-                {githubStats && (
-                  <Link
-                    href={siteConfig.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border-muted bg-surface-raised px-2.5 py-0.5 text-[10px] font-semibold text-text-primary shadow-3 hover:border-text-secondary/40 hover:text-text-primary transition-all active:scale-95"
-                  >
-                    <GitHubIcon className="h-3 w-3 shrink-0 text-text-secondary" />
-                    <span>{githubStats.followers} followers</span>
-                    <span className="h-1.5 w-px bg-border-muted" />
-                    <span>{githubStats.repos} repos</span>
-                  </Link>
-                )}
               </div>
             </FadeIn>
 
-            <FadeIn direction="up" distance={20}>
-              <TextReveal
-                text="Shakir Ansari"
-                as="h1"
-                className="text-4xl font-semibold tracking-tight text-text-primary sm:text-6xl"
-              />
-            </FadeIn>
-
+            {/* Metadata Grid */}
             <FadeIn direction="up" distance={15}>
-              <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-text-secondary">
-                Building{" "}
-                <TextMorph
-                  values={heroRoles}
-                  interval={2800}
-                  charDelay={0.035}
-                  charDuration={0.25}
-                />
-              </p>
+              <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 border-t border-border-muted pt-6">
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-wider text-text-tertiary">Location</div>
+                  <div className="mt-1 text-xs text-text-secondary">India</div>
+                </div>
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-wider text-text-tertiary">Email</div>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="mt-1 block text-xs text-text-secondary hover:text-text-primary transition-colors underline decoration-border-muted"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </div>
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-wider text-text-tertiary">Pronouns</div>
+                  <div className="mt-1 text-xs text-text-secondary">he/him</div>
+                </div>
+              </div>
             </FadeIn>
 
-            <FadeIn direction="up" distance={20}>
-              <p className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-text-secondary sm:text-md">
-                Building web platforms, APIs, cloud-hosted applications, and media
+            {/* Bio Description */}
+            <FadeIn direction="up" distance={15}>
+              <p className="mt-6 text-sm leading-relaxed text-text-secondary sm:text-base">
+                I build web platforms, APIs, cloud-hosted applications, and media
                 services. Designed for consistency, accessibility, and high performance.
               </p>
             </FadeIn>
 
-            {/* Actions list */}
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-2.5 max-w-sm sm:max-w-none mx-auto w-full">
-              <FadeIn direction="up" distance={15} className="w-full sm:w-auto flex justify-center">
-                <GetStartedButton />
-              </FadeIn>
-              
-              <div className="flex flex-row items-center justify-center gap-2 sm:gap-2.5 w-full sm:w-auto">
-                <FadeIn direction="up" distance={15} className="flex-1 sm:flex-none">
-                  <Link
-                    href={siteConfig.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full"
-                  >
-                    <GitHubIcon className="h-3.5 w-3.5" />
-                    GitHub
-                  </Link>
-                </FadeIn>
+            {/* Live/Active status row */}
+            <FadeIn direction="up" distance={15}>
+              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2.5 text-xs text-text-secondary font-mono border-t border-border-muted/50 pt-5">
+                <div className="flex items-center gap-1.5">
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                  </span>
+                  <span>Available for projects</span>
+                </div>
                 
-                <FadeIn direction="up" distance={15} className="flex-1 sm:flex-none">
-                  <Link
-                    href={siteConfig.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full"
-                  >
-                    <LinkedInIcon className="h-3.5 w-3.5" />
-                    LinkedIn
-                  </Link>
-                </FadeIn>
-                
-                <FadeIn direction="up" distance={15} className="flex-1 sm:flex-none">
-                  <Link
-                    href={siteConfig.resume}
-                    className="inline-flex items-center justify-center gap-1.5 rounded border border-border-muted bg-surface-raised px-3.5 py-2 text-xs font-medium text-text-primary shadow-3 transition-all duration-fast hover:bg-surface-strong hover:text-background active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary w-full"
-                  >
-                    <DownloadIcon className="h-3.5 w-3.5" />
-                    Resume
-                  </Link>
-                </FadeIn>
-              </div>
-            </div>
+                <span className="h-3 w-px bg-border-muted" />
 
-            {/* Subtext info */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-2 text-[10px] sm:text-xs text-text-tertiary">
-              <FadeIn direction="up" distance={10}>
-                <span className="inline-flex items-center gap-1.5">
-                  <LayersIcon className="h-3.5 w-3.5 text-text-secondary" />
-                  Full-Stack
-                </span>
-              </FadeIn>
-              <span className="h-3 w-px bg-border-muted" />
-              <FadeIn direction="up" distance={10}>
-                <span className="inline-flex items-center gap-1.5">
-                  <ServerIcon className="h-3.5 w-3.5 text-text-secondary" />
-                  Backend &amp; APIs
-                </span>
-              </FadeIn>
-              <span className="h-3 w-px bg-border-muted" />
-              <FadeIn direction="up" distance={10}>
-                <span className="inline-flex items-center gap-1.5">
-                  <CloudIcon className="h-3.5 w-3.5 text-text-secondary" />
-                  Cloud
-                </span>
-              </FadeIn>
-            </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
+                  <span>{visits !== null ? `${visits.toLocaleString()} views` : "--- views"}</span>
+                </div>
+
+                {githubStats && (
+                  <>
+                    <span className="h-3 w-px bg-border-muted" />
+                    <Link
+                      href={siteConfig.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 hover:text-text-primary transition-colors"
+                    >
+                      <GitHubIcon className="h-3.5 w-3.5 shrink-0 text-text-secondary" />
+                      <span>{githubStats.followers} followers</span>
+                      <span>•</span>
+                      <span>{githubStats.repos} repos</span>
+                    </Link>
+                  </>
+                )}
+              </div>
+            </FadeIn>
+
+            {/* Minimalist Social Icons Row */}
+            <FadeIn direction="up" distance={15}>
+              <div className="mt-8 flex items-center gap-4.5">
+                <Link
+                  href={siteConfig.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-secondary hover:text-text-primary transition-colors"
+                  aria-label="GitHub"
+                >
+                  <GitHubIcon className="h-5 w-5" />
+                </Link>
+                <Link
+                  href={siteConfig.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-secondary hover:text-text-primary transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon className="h-5 w-5" />
+                </Link>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="text-text-secondary hover:text-text-primary transition-colors"
+                  aria-label="Email"
+                >
+                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                </a>
+                <Link
+                  href={siteConfig.resume}
+                  className="inline-flex items-center gap-1.5 text-[10px] font-mono text-text-secondary hover:text-text-primary transition-all border border-border-muted bg-surface-raised px-2 py-0.5 rounded shadow-3 hover:border-text-secondary/40 active:scale-95"
+                  aria-label="Download Resume"
+                >
+                  <DownloadIcon className="h-3 w-3" />
+                  <span>Resume</span>
+                </Link>
+              </div>
+            </FadeIn>
+
           </StaggerContainer>
         </div>
       </Container>
