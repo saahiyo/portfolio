@@ -6,7 +6,7 @@ const KEY = "visits";
 export async function GET() {
   try {
     const res = await fetch(
-      `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`,
+      `https://api.counterapi.vercel.app/v1/${NAMESPACE}/${KEY}/up`,
       { cache: "no-store" }
     );
 

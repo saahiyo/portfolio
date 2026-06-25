@@ -207,7 +207,7 @@ export const projects: Project[] = [
     ],
     links: [
       { label: "GitHub", href: "https://github.com/saahiyo/teraplay", type: "github" },
-      { label: "Live Demo", href: "https://teraplay.shakiransari.dev", type: "demo" },
+      { label: "Live Demo", href: "https://teraplay.ansarishakir.vercel.app", type: "demo" },
     ],
   },
 ];

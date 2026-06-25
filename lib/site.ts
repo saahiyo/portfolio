@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "Shakir Ansari — Full-Stack Developer",
   description:
     "Building web platforms, APIs, cloud-hosted applications, and media services.",
-  url: "https://shakiransari.dev",
+  url: "https://ansarishakir.vercel.app",
   email: "shakir.ansarii075@gmail.com",
   github: "https://github.com/saahiyo",
   linkedin: "https://www.linkedin.com/in/shakir-ansari-362784296",

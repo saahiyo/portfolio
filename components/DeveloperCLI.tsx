@@ -52,7 +52,7 @@ export function DeveloperCLI() {
             type: "output",
             content: (
               <div className="space-y-1 text-zinc-400 font-mono text-[11px] leading-relaxed">
-                <p className="text-emerald-500 font-bold">visitor@shakir.dev:~$ initialize --interactive</p>
+                <p className="text-emerald-500 font-bold">visitor@shakir.vercel.app:~$ initialize --interactive</p>
                 <p className="text-zinc-500">----------------------------------------------------</p>
                 <p>Welcome to Shakir Ansari&apos;s Interactive Developer Console (v1.0.0)</p>
                 <p>Type <span className="text-emerald-400 font-bold">help</span> or <span className="text-emerald-400 font-bold">?</span> to view available terminal commands.</p>
@@ -574,7 +574,7 @@ export function DeveloperCLI() {
   };
 
   const handlePingCommand = (target: string) => {
-    const t = target ? target.trim() : "shakiransari.dev";
+    const t = target ? target.trim() : "ansarishakir.vercel.app";
     setLogs((prev) => [
       ...prev,
       {
@@ -841,7 +841,7 @@ export function DeveloperCLI() {
                   <div key={log.id}>
                     {log.type === "input" ? (
                       <div className="flex items-center gap-2 font-mono text-[11px]">
-                        <span className="text-emerald-500 font-bold">visitor@shakir.dev:{log.dir ?? "~"}$</span>
+                        <span className="text-emerald-500 font-bold">visitor@shakir.vercel.app:{log.dir ?? "~"}$</span>
                         <span className="text-zinc-100">{log.content}</span>
                       </div>
                     ) : (
@@ -857,7 +857,7 @@ export function DeveloperCLI() {
                 className="flex items-center gap-2 border-t border-zinc-900 bg-zinc-950 px-4 py-3"
               >
                 <span className="text-emerald-500 font-bold text-[11px] shrink-0">
-                  visitor@shakir.dev:{currentDir}$
+                  visitor@shakir.vercel.app:{currentDir}$
                 </span>
                 <input
                   ref={inputRef}

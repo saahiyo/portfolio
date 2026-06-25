@@ -8,7 +8,7 @@
 
 Building web platforms, APIs, cloud-hosted applications, and media services.
 
-[shakiransari.dev](https://shakiransari.dev) · [GitHub](https://github.com/saahiyo) · [LinkedIn](https://www.linkedin.com/in/shakir-ansari-362784296) · [shakir.ansarii075@gmail.com](mailto:shakir.ansarii075@gmail.com)
+[ansarishakir.vercel.app](https://ansarishakir.vercel.app) · [GitHub](https://github.com/saahiyo) · [LinkedIn](https://www.linkedin.com/in/shakir-ansari-362784296) · [shakir.ansarii075@gmail.com](mailto:shakir.ansarii075@gmail.com)
 
 </div>
 
@@ -53,7 +53,7 @@ This portfolio itself is built with:
 | --- | --- | --- | --- |
 | **BCA Notes** | Study notes platform for BCA students — semester-wise, searchable, mobile-first | Next.js, React, Tailwind CSS, Firebase | [Live](https://bcanotes.tech) · [GitHub](https://github.com/saahiyo/bca-notes) |
 | **Terabox Gateway** | Terabox link resolver & streaming API with dual-cloud redundancy | Python, Flask, Vercel, Render, Cloudflare | [Docs](https://terabridge-api.vercel.app) · [GitHub](https://github.com/saahiyo/terabridge-api) |
-| **TeraPlay** | Streaming frontend for Terabox media with HLS.js adaptive playback | React, Vite, Tailwind CSS, HLS.js | [Live](https://teraplay.shakiransari.dev) · [GitHub](https://github.com/saahiyo/teraplay) |
+| **TeraPlay** | Streaming frontend for Terabox media with HLS.js adaptive playback | React, Vite, Tailwind CSS, HLS.js | [Live](https://teraplay.ansarishakir.vercel.app) · [GitHub](https://github.com/saahiyo/teraplay) |
 
 ---
 
