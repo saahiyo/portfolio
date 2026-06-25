@@ -39,19 +39,19 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "Tailwind CSS", "Firebase", "Node.js"],
     featured: true,
     cardImage: {
-      light: "/projects/bca-notes/bcanotes-home.png",
-      dark: "/projects/bca-notes/bcanotes-home-d.png",
+      light: "/projects/bca-notes/bcanotes-home-d.png",
+      dark: "/projects/bca-notes/bcanotes-home.png",
     },
     screenshots: [
       {
-        src: "/projects/bca-notes/bcanotes-home.png",
+        src: "/projects/bca-notes/bcanotes-home-d.png",
         alt: "BCA Notes homepage showing semester cards",
         caption: "Homepage with semester and subject navigation",
       },
       {
-        src: "/projects/bca-notes/bca-notes-2.svg",
-        alt: "BCA Notes reader view for a subject",
-        caption: "Clean reading view with topic sidebar",
+        src: "/projects/bca-notes/bcanotes-tools.png",
+        alt: "BCA Notes tools page showing resources",
+        caption: "Clean tools view with subject resources",
       },
     ],
     overview:
@@ -167,14 +167,24 @@ export const projects: Project[] = [
     cardImage: "/projects/teraplay/teraplay-card.png",
     screenshots: [
       {
-        src: "/projects/teraplay/teraplay-1.svg",
+        src: "/projects/teraplay/teraplay-1.png",
         alt: "TeraPlay player interface playing a video",
         caption: "Player view with custom controls and link input",
       },
       {
-        src: "/projects/teraplay/teraplay-2.svg",
+        src: "/projects/teraplay/teraplay-2.png",
         alt: "TeraPlay mobile responsive layout",
         caption: "Responsive layout adapting to mobile screens",
+      },
+      {
+        src: "/projects/teraplay/teraplay-profile.png",
+        alt: "TeraPlay profile page",
+        caption: "profile page",
+      },
+       {
+        src: "/projects/teraplay/teraplay-settings.png",
+        alt: "TeraPlay settings page",
+        caption: "settings page",
       },
     ],
     overview:
