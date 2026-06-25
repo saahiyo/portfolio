@@ -38,7 +38,7 @@ export const projects: Project[] = [
       "BCA Notes is a full-stack study platform that organizes Bachelor of Computer Applications course material into clean, searchable, semester-wise collections. It pairs a Next.js frontend with a Firebase backend for auth and content delivery.",
     tech: ["Next.js", "React", "Tailwind CSS", "Firebase", "Node.js"],
     featured: true,
-    cardImage: "/projects/bca-notes-card.svg",
+    cardImage: "/projects/bcanotes-home.png",
     screenshots: [
       {
         src: "/projects/bca-notes-1.svg",

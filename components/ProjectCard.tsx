@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
 import { ViewTransition } from "react";
 import Link from "next/link";
@@ -14,24 +15,32 @@ export function ProjectCard({ project }: { project: Project }) {
         aria-label={`View ${project.name} case study`}
       >
         <ViewTransition name={`project-image-${project.slug}`}>
-          <div className="relative w-full h-full flex flex-col items-center justify-center bg-zinc-950/40 text-text-tertiary select-none">
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
-            <div className="flex flex-col items-center gap-1 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-text-secondary/30 transition-colors duration-fast group-hover:text-text-secondary/80">
-              <svg
-                className="h-6 w-6 sm:h-7 sm:w-7 stroke-[1.25]"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                />
-              </svg>
-              <span>Preview Pending</span>
+          {project.cardImage ? (
+            <img
+              src={project.cardImage}
+              alt={`${project.name} preview`}
+              className="w-full h-full object-cover transition-transform duration-fast group-hover:scale-[1.02]"
+            />
+          ) : (
+            <div className="relative w-full h-full flex flex-col items-center justify-center bg-zinc-950/40 text-text-tertiary select-none">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+              <div className="flex flex-col items-center gap-1 font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.15em] text-text-secondary/30 transition-colors duration-fast group-hover:text-text-secondary/80">
+                <svg
+                  className="h-6 w-6 sm:h-7 sm:w-7 stroke-[1.25]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                  />
+                </svg>
+                <span>Preview Pending</span>
+              </div>
             </div>
-          </div>
+          )}
         </ViewTransition>
         <span className="absolute left-2.5 top-2.5 rounded border border-border-muted bg-background/80 px-2 py-0.5 text-[10px] font-medium text-text-secondary backdrop-blur">
           {project.category}
