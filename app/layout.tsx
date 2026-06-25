@@ -4,12 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/site";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import dynamic from "next/dynamic";
-
-const DeveloperCLI = dynamic(
-  () => import("@/components/DeveloperCLI").then((mod) => mod.DeveloperCLI),
-  { ssr: false }
-);
+import { DeveloperCLI } from "@/components/DeveloperCLI";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,6 +25,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Shakir Ansari",
+    "ansari shakir",
+    "ansarishakir",
     "Full-Stack Developer",
     "Web Developer",
     "Backend Developer",
@@ -38,6 +35,8 @@ export const metadata: Metadata = {
     "Python Flask API",
     "Cloud Deployment",
     "REST API",
+    "Web3",
+    "AI",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
