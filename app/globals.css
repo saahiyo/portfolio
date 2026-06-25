@@ -239,15 +239,17 @@ body {
   0% {
     transform: translateX(-150%) skewX(-20deg);
   }
-  30% {
-    transform: translateX(150%) skewX(-20deg);
-  }
   100% {
     transform: translateX(150%) skewX(-20deg);
   }
 }
 
 .animate-shimmer {
-  animation: shimmer 3s ease-in-out infinite;
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.relative:hover .animate-shimmer {
+  animation: shimmer 1s ease-in-out forwards;
 }
 
