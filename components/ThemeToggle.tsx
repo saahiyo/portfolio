@@ -112,7 +112,7 @@ export function ThemeToggle() {
       ref={buttonRef}
       type="button"
       onClick={toggleTheme}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border-muted bg-surface-raised text-text-primary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:bg-surface hover:scale-[1.03] active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border-muted bg-surface-raised text-text-primary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:bg-surface hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-text-primary"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
       title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
     >
