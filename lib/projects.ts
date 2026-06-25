@@ -31,7 +31,7 @@ export const projects: Project[] = [
     name: "BCA Notes",
     tagline: "Study notes platform for BCA students",
     category: "Full-Stack",
-    year: "2023",
+    year: "Apr 13, 2026 (first commit)",
     summary:
       "A centralized platform where BCA students can browse, search, and read semester-wise notes across computer-science subjects.",
     description:
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     name: "Terabox Gateway",
     tagline: "Terabox link resolver & streaming API",
     category: "Backend",
-    year: "2024",
+    year: "Oct 17, 2025 (first commit)",
     summary:
       "A Flask API that resolves Terabox share links into direct streaming and download URLs, deployed on Vercel and Render.",
     description:
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     name: "TeraPlay",
     tagline: "Streaming frontend for Terabox media",
     category: "Frontend",
-    year: "2024",
+    year: "Jun 11, 2026 (first commit)",
     summary:
       "A React + Vite frontend that streams Terabox video through HLS.js with a fast, clean media-player experience.",
     description:

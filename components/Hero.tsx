@@ -32,16 +32,9 @@ interface GitHubStats {
 }
 
 export function Hero() {
-  const [visits, setVisits] = useState<number | null>(null);
   const [githubStats, setGithubStats] = useState<GitHubStats | null>(null);
 
   useEffect(() => {
-    // 1. Load from cache first for instant paint
-    const cachedVisits = localStorage.getItem("visits-count");
-    if (cachedVisits) {
-      setVisits(parseInt(cachedVisits, 10));
-    }
-
     const cachedStats = localStorage.getItem("github-stats");
     if (cachedStats) {
       try {
@@ -51,26 +44,7 @@ export function Hero() {
       }
     }
 
-    // 2. Fetch via same-origin proxy to avoid ad-blocker issues (Brave, etc.)
-    fetch("/api/views")
-      .then((res) => {
-        if (!res.ok) throw new Error("API failure");
-        return res.json();
-      })
-      .then((data) => {
-        if (data.count !== null) {
-          setVisits(data.count);
-          localStorage.setItem("visits-count", data.count.toString());
-        }
-      })
-      .catch((err) => {
-        console.error("Counter API failed, using fallback:", err);
-        if (!cachedVisits) {
-          setVisits(1);
-        }
-      });
-
-    // 3. Fetch GitHub stats via backend proxy
+    // Fetch GitHub stats via backend proxy
     fetch("/api/github")
       .then((res) => {
         if (!res.ok) throw new Error("API failure");
@@ -195,12 +169,7 @@ export function Hero() {
                   <span>Available for projects</span>
                 </div>
                 
-                <span className="h-3 w-px bg-border-muted" />
 
-                <div className="flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
-                  <span>{visits !== null ? `${visits.toLocaleString()} views` : "--- views"}</span>
-                </div>
 
                 {githubStats && (
                   <>
