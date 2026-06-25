@@ -139,30 +139,46 @@ export function Hero() {
 
             {/* Metadata Grid */}
             <FadeIn direction="up" distance={15}>
-              <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3 border-t border-border-muted pt-6">
-                <div>
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-text-tertiary">Location</div>
-                  <div className="mt-1 text-xs text-text-secondary">India</div>
+              <div className="flex flex-wrap items-start gap-x-6 sm:gap-x-8 gap-y-4 mb-6 mt-10">
+                <div className="space-y-1">
+                  <div className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] text-text-secondary/70">Location</div>
+                  <div className="flex items-center gap-2 text-[13.5px] sm:text-[15px] text-text-primary font-medium">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-text-tertiary shrink-0">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    <span>India</span>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-text-tertiary">Email</div>
+                <div className="space-y-1">
+                  <div className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] text-text-secondary/70">Email</div>
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className="mt-1 block text-xs text-text-secondary hover:text-text-primary transition-colors underline decoration-border-muted"
+                    className="group flex items-center gap-2 text-[13.5px] sm:text-[15px] text-text-primary hover:text-text-primary transition-colors font-medium"
                   >
-                    {siteConfig.email}
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-text-tertiary shrink-0">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                    <span className="group-hover:underline underline-offset-[2px]">{siteConfig.email}</span>
                   </a>
                 </div>
-                <div>
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-text-tertiary">Pronouns</div>
-                  <div className="mt-1 text-xs text-text-secondary">he/him</div>
+                <div className="hidden sm:block space-y-1">
+                  <div className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] text-text-secondary/70">Pronouns</div>
+                  <div className="flex items-center gap-2 text-[13.5px] sm:text-[15px] text-text-primary font-medium">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="text-text-tertiary shrink-0">
+                      <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                    <span>he/him</span>
+                  </div>
                 </div>
               </div>
             </FadeIn>
 
             {/* Bio Description */}
             <FadeIn direction="up" distance={15}>
-              <p className="mt-6 text-sm leading-relaxed text-text-secondary sm:text-base">
+              <p className="mt-4 text-sm leading-relaxed text-text-secondary sm:text-base">
                 I build web platforms, APIs, cloud-hosted applications, and media
                 services. Designed for consistency, accessibility, and high performance.
               </p>
@@ -170,7 +186,7 @@ export function Hero() {
 
             {/* Live/Active status row */}
             <FadeIn direction="up" distance={15}>
-              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2.5 text-xs text-text-secondary font-mono border-t border-border-muted/50 pt-5">
+              <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2.5 text-xs text-text-secondary font-mono">
                 <div className="flex items-center gap-1.5">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
