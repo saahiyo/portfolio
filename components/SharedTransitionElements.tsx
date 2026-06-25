@@ -45,7 +45,7 @@ export function SharedImage({
 
   return (
     <ViewTransition name={`project-image-${slug}`}>
-      <div className="relative w-full aspect-[16/9] flex items-center justify-center bg-zinc-950/40 text-text-tertiary select-none overflow-hidden">
+      <div className="relative w-full aspect-video flex items-center justify-center bg-zinc-950/40 text-text-tertiary select-none overflow-hidden">
         {resolvedSrc ? (
           <img
             src={resolvedSrc}
@@ -54,7 +54,7 @@ export function SharedImage({
           />
         ) : (
           <>
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-size-[16px_16px] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
             <div className="flex flex-col items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.15em] text-text-secondary/30">
               <svg
                 className="h-7 w-7 stroke-[1.25]"
