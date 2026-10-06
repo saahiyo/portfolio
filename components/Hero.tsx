@@ -5,16 +5,11 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
 import {
-  ArrowRightIcon,
   GitHubIcon,
   LinkedInIcon,
   DownloadIcon,
-  LayersIcon,
-  ServerIcon,
-  CloudIcon,
 } from "@/components/Icons";
 import { TextMorph } from "@/components/TextMorph";
-import { GetStartedButton } from "@/components/ui/get-started-button";
 import { TextReveal } from "@/components/ui/cascade-text";
 
 const heroRoles = [

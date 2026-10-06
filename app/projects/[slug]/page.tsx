@@ -281,25 +281,54 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Prev / Next */}
         <FadeIn direction="up">
-          <nav className="mt-16 grid gap-4 border-t border-border-muted pt-8 sm:grid-cols-2">
-            <Link
-              href={`/projects/${prev.slug}`}
-              className="group rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-colors duration-fast hover:border-text-secondary/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-            >
-              <span className="text-[10px] text-text-tertiary uppercase tracking-wider font-mono">← Previous</span>
-              <span className="mt-1 block text-xs font-semibold text-text-primary group-hover:text-text-secondary">
-                {prev.name}
-              </span>
-            </Link>
-            <Link
-              href={`/projects/${next.slug}`}
-              className="group rounded-xl border border-border-muted bg-surface-raised p-5 text-right shadow-3 transition-colors duration-fast hover:border-text-secondary/40 sm:col-start-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
-            >
-              <span className="text-[10px] text-text-tertiary uppercase tracking-wider font-mono">Next →</span>
-              <span className="mt-1 block text-xs font-semibold text-text-primary group-hover:text-text-secondary">
-                {next.name}
-              </span>
-            </Link>
+          <nav aria-label="Project pagination" className="mt-20 border-t border-border-muted pt-10">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Link
+                href={`/projects/${prev.slug}`}
+                className="group relative flex flex-col justify-between rounded-xl border border-border-muted bg-surface-raised p-5 shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:bg-surface active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              >
+                <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-text-secondary transition-transform duration-fast group-hover:-translate-x-1">
+                  <span>←</span>
+                  <span>Previous Project</span>
+                </div>
+                <div className="mt-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-sm font-semibold text-text-primary transition-colors duration-fast group-hover:text-text-primary">
+                      {prev.name}
+                    </span>
+                    <span className="rounded border border-border-muted bg-background px-1.5 py-0.5 text-[9px] font-mono text-text-secondary">
+                      {prev.category}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-xs text-text-secondary line-clamp-1">
+                    {prev.tagline}
+                  </p>
+                </div>
+              </Link>
+
+              <Link
+                href={`/projects/${next.slug}`}
+                className="group relative flex flex-col justify-between rounded-xl border border-border-muted bg-surface-raised p-5 text-right shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:bg-surface active:scale-[0.99] focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+              >
+                <div className="flex items-center justify-end gap-1.5 text-[10px] font-mono uppercase tracking-wider text-text-secondary transition-transform duration-fast group-hover:translate-x-1">
+                  <span>Next Project</span>
+                  <span>→</span>
+                </div>
+                <div className="mt-3">
+                  <div className="flex items-center justify-between gap-2 flex-row-reverse">
+                    <span className="text-sm font-semibold text-text-primary transition-colors duration-fast group-hover:text-text-primary">
+                      {next.name}
+                    </span>
+                    <span className="rounded border border-border-muted bg-background px-1.5 py-0.5 text-[9px] font-mono text-text-secondary">
+                      {next.category}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-xs text-text-secondary line-clamp-1">
+                    {next.tagline}
+                  </p>
+                </div>
+              </Link>
+            </div>
           </nav>
         </FadeIn>
       </Container>

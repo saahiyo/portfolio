@@ -19,8 +19,8 @@ export function Navbar() {
 
       <Container className="relative">
         <nav className="flex h-16 items-center justify-between">
-          {/* Navigation Links Group */}
-          <div className="flex items-center gap-5 md:gap-6">
+          {/* Navigation Links Group with Floating Capsule Container */}
+          <div className="flex items-center gap-1 sm:gap-1.5 rounded-full border border-border-muted bg-surface-raised/80 backdrop-blur-md px-1.5 py-1 shadow-3">
             {siteConfig.nav.map((item) => {
               const isActive = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
               return (
@@ -28,10 +28,10 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative font-sans text-sm py-1 transition-colors duration-fast after:content-[''] after:absolute after:w-0 after:-bottom-px after:left-0 after:h-px after:bg-current after:transition-all hover:after:w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
+                  className={`relative rounded-full px-2.5 sm:px-3 py-1 text-xs sm:text-[13px] font-sans transition-all duration-fast focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary ${
                     isActive
-                      ? "text-text-primary font-medium"
-                      : "text-text-secondary hover:text-text-primary"
+                      ? "bg-surface-strong text-background font-medium shadow-1"
+                      : "text-text-secondary hover:text-text-primary hover:bg-black/5 dark:hover:bg-white/5"
                   }`}
                 >
                   {item.label}

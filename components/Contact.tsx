@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
-import { ArrowUpRightIcon } from "@/components/Icons";
+import { ArrowUpRightIcon, CopyIcon, CheckIcon } from "@/components/Icons";
 
 const quotes = [
   { text: "Strive not to be a success, but rather to be of value.", author: "Albert Einstein" },
@@ -17,6 +17,17 @@ const quotes = [
 export function Contact() {
   const [quote, setQuote] = useState(quotes[0]);
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(siteConfig.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   // Pick a random quote on mount
   useEffect(() => {
@@ -66,16 +77,43 @@ export function Contact() {
             {/* Action Link Rows stretching edge-to-edge */}
             <div className="flex-1 -mx-6 sm:-mx-8 border-t border-[rgba(0,0,0,0.05)] dark:border-[rgba(255,255,255,0.06)] divide-y divide-[rgba(0,0,0,0.05)] dark:divide-[rgba(255,255,255,0.06)]">
               {/* Direct Email */}
-              <Link
-                href={`mailto:${siteConfig.email}`}
-                className="flex items-center justify-between px-6 sm:px-8 py-4 transition-all duration-fast hover:bg-black/[0.015] dark:hover:bg-white/[0.015] group"
-              >
-                <div>
+              <div className="flex items-center justify-between px-6 sm:px-8 py-4 transition-all duration-fast hover:bg-black/[0.015] dark:hover:bg-white/[0.015] group">
+                <Link
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary rounded-sm"
+                >
                   <span className="block text-xs font-semibold text-text-primary">Direct email</span>
                   <span className="block text-xs text-text-secondary">{siteConfig.email}</span>
+                </Link>
+                <div className="flex items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="inline-flex items-center gap-1.5 rounded border border-border-muted bg-surface-raised px-2.5 py-1 text-[11px] font-mono text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+                    aria-label="Copy email address"
+                    title="Copy email address to clipboard"
+                  >
+                    {copied ? (
+                      <>
+                        <CheckIcon className="h-3 w-3 text-emerald-500" />
+                        <span className="text-emerald-500 font-medium">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <CopyIcon className="h-3 w-3" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                  <Link
+                    href={`mailto:${siteConfig.email}`}
+                    aria-label="Send direct email"
+                    className="text-text-secondary transition-colors duration-fast group-hover:text-text-primary"
+                  >
+                    <ArrowUpRightIcon className="h-4 w-4" />
+                  </Link>
                 </div>
-                <ArrowUpRightIcon className="h-4 w-4 text-text-secondary transition-colors duration-fast group-hover:text-text-primary" />
-              </Link>
+              </div>
 
               {/* GitHub */}
               <Link
