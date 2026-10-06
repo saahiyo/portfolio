@@ -2,22 +2,14 @@ import { Hero } from "@/components/Hero";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
-import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
-
 export default function Home() {
   return (
     <div className="relative min-h-screen">
-      {/* Full-Page Background Flickering Grid */}
-      <div className="pointer-events-none fixed inset-0 -z-50 overflow-hidden opacity-30">
-        <FlickeringGrid
-          squareSize={4}
-          gridGap={6}
-          flickerChance={0.05}
-          color="var(--text-secondary)"
-          maxOpacity={0.2}
-          className="h-full w-full"
-        />
-      </div>
+      {/* Hardware-accelerated CSS Grid Pattern */}
+      <div
+        className="pointer-events-none fixed inset-0 -z-50 opacity-40 bg-[radial-gradient(var(--border)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_70%,transparent_100%)]"
+        aria-hidden="true"
+      />
 
       <Hero />
       <FeaturedProjects />

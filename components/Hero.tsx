@@ -13,7 +13,6 @@ import {
   ServerIcon,
   CloudIcon,
 } from "@/components/Icons";
-import { FadeIn, StaggerContainer } from "@/components/Animate";
 import { TextMorph } from "@/components/TextMorph";
 import { GetStartedButton } from "@/components/ui/get-started-button";
 import { TextReveal } from "@/components/ui/cascade-text";
@@ -80,10 +79,9 @@ export function Hero() {
 
       <Container>
         <div className="max-w-2xl text-left">
-          <StaggerContainer delayChildren={0.1} staggerDelay={0.08}>
-            
+          <div>
             {/* Header (Avatar + Name & Title) */}
-            <FadeIn direction="up" distance={15}>
+            <div>
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                 <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-border-muted bg-surface-raised shadow-3">
                   <img
@@ -115,10 +113,10 @@ export function Hero() {
                   </div>
                 </div>
               </div>
-            </FadeIn>
+            </div>
 
             {/* Metadata Grid */}
-            <FadeIn direction="up" distance={15}>
+            <div>
               <div className="flex flex-wrap items-start gap-x-6 sm:gap-x-8 gap-y-4 mb-6 mt-10">
                 <div className="space-y-1">
                   <div className="text-[10px] sm:text-[11px] font-medium uppercase tracking-[0.14em] text-text-secondary/70">Location</div>
@@ -154,18 +152,18 @@ export function Hero() {
                   </div>
                 </div>
               </div>
-            </FadeIn>
+            </div>
 
             {/* Bio Description */}
-            <FadeIn direction="up" distance={15}>
+            <div>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary sm:text-base">
                 I build web platforms, APIs, cloud-hosted applications, and media
                 services. Designed for consistency, accessibility, and high performance.
               </p>
-            </FadeIn>
+            </div>
 
             {/* Live/Active status row */}
-            <FadeIn direction="up" distance={15}>
+            <div>
               <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2.5 text-xs text-text-secondary font-mono">
                 <div className="flex items-center gap-1.5">
                   <span className="relative flex h-1.5 w-1.5">
@@ -174,8 +172,6 @@ export function Hero() {
                   </span>
                   <span>Available for projects</span>
                 </div>
-                
-
 
                 {githubStats && (
                   <>
@@ -194,10 +190,10 @@ export function Hero() {
                   </>
                 )}
               </div>
-            </FadeIn>
+            </div>
 
             {/* Minimalist Social Icons Row */}
-            <FadeIn direction="up" distance={15}>
+            <div>
               <div className="mt-8 flex items-center gap-4.5">
                 <Link
                   href={siteConfig.github}
@@ -238,9 +234,8 @@ export function Hero() {
                   <span>Resume</span>
                 </a>
               </div>
-            </FadeIn>
-
-          </StaggerContainer>
+            </div>
+          </div>
         </div>
       </Container>
     </section>
