@@ -56,6 +56,8 @@ export function ProjectCard({ project }: { project: Project }) {
             <img
               src={resolvedSrc}
               alt={`${project.name} preview`}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover transition-transform duration-fast group-hover:scale-[1.02]"
             />
           ) : (

@@ -39,17 +39,17 @@ export const projects: Project[] = [
     tech: ["Next.js", "React", "Tailwind CSS", "Firebase", "Node.js"],
     featured: true,
     cardImage: {
-      light: "/projects/bca-notes/bcanotes-home-d.png",
-      dark: "/projects/bca-notes/bcanotes-home.png",
+      light: "/projects/bca-notes/bcanotes-home-d.webp",
+      dark: "/projects/bca-notes/bcanotes-home.webp",
     },
     screenshots: [
       {
-        src: "/projects/bca-notes/bcanotes-home-d.png",
+        src: "/projects/bca-notes/bcanotes-home-d.webp",
         alt: "BCA Notes homepage showing semester cards",
         caption: "Homepage with semester and subject navigation",
       },
       {
-        src: "/projects/bca-notes/bcanotes-tools.png",
+        src: "/projects/bca-notes/bcanotes-tools.webp",
         alt: "BCA Notes tools page showing resources",
         caption: "Clean tools view with subject resources",
       },
@@ -164,25 +164,25 @@ export const projects: Project[] = [
       "TeraPlay is the consumer-facing frontend that pairs with Terabox Gateway. Built with React, Vite, and Tailwind CSS, it resolves a Terabox link and plays the resulting stream with HLS.js, focusing on speed and a clean playback UX.",
     tech: ["React", "Vite", "Tailwind CSS", "HLS.js", "JavaScript"],
     featured: true,
-    cardImage: "/projects/teraplay/teraplay-card.png",
+    cardImage: "/projects/teraplay/teraplay-card.webp",
     screenshots: [
       {
-        src: "/projects/teraplay/teraplay-1.png",
+        src: "/projects/teraplay/teraplay-1.webp",
         alt: "TeraPlay player interface playing a video",
         caption: "Player view with custom controls and link input",
       },
       {
-        src: "/projects/teraplay/teraplay-2.png",
+        src: "/projects/teraplay/teraplay-2.webp",
         alt: "TeraPlay mobile responsive layout",
         caption: "Responsive layout adapting to mobile screens",
       },
       {
-        src: "/projects/teraplay/teraplay-profile.png",
+        src: "/projects/teraplay/teraplay-profile.webp",
         alt: "TeraPlay profile page",
         caption: "profile page",
       },
        {
-        src: "/projects/teraplay/teraplay-settings.png",
+        src: "/projects/teraplay/teraplay-settings.webp",
         alt: "TeraPlay settings page",
         caption: "settings page",
       },

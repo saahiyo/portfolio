@@ -72,7 +72,7 @@ export function Contact() {
               >
                 <div>
                   <span className="block text-xs font-semibold text-text-primary">Direct email</span>
-                  <span className="block text-[10px] text-text-tertiary">{siteConfig.email}</span>
+                  <span className="block text-xs text-text-secondary">{siteConfig.email}</span>
                 </div>
                 <ArrowUpRightIcon className="h-4 w-4 text-text-secondary transition-colors duration-fast group-hover:text-text-primary" />
               </Link>
@@ -86,7 +86,7 @@ export function Contact() {
               >
                 <div>
                   <span className="block text-xs font-semibold text-text-primary">GitHub</span>
-                  <span className="block text-[10px] text-text-tertiary">Explore repositories & open-source projects</span>
+                  <span className="block text-xs text-text-secondary">Explore repositories & open-source projects</span>
                 </div>
                 <ArrowUpRightIcon className="h-4 w-4 text-text-secondary transition-colors duration-fast group-hover:text-text-primary" />
               </Link>
@@ -100,7 +100,7 @@ export function Contact() {
               >
                 <div>
                   <span className="block text-xs font-semibold text-text-primary">LinkedIn</span>
-                  <span className="block text-[10px] text-text-tertiary">Connect for professional updates & career</span>
+                  <span className="block text-xs text-text-secondary">Connect for professional updates & career</span>
                 </div>
                 <ArrowUpRightIcon className="h-4 w-4 text-text-secondary transition-colors duration-fast group-hover:text-text-primary" />
               </Link>
@@ -128,7 +128,7 @@ export function Contact() {
             <p className="text-xs sm:text-sm text-text-secondary leading-relaxed italic -mt-2">
               {quote.text}
             </p>
-            <span className="block mt-1 text-[10px] font-mono text-text-tertiary">— {quote.author}</span>
+            <span className="block mt-1 text-[10px] font-mono text-text-secondary">— {quote.author}</span>
           </div>
 
           {/* Sibling Separator */}

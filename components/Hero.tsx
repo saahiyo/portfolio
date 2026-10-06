@@ -87,8 +87,12 @@ export function Hero() {
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                 <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-border-muted bg-surface-raised shadow-3">
                   <img
-                    src="https://github.com/saahiyo.png"
+                    src="https://github.com/saahiyo.png?size=160"
                     alt="Shakir Ansari Avatar"
+                    width={80}
+                    height={80}
+                    decoding="async"
+                    fetchPriority="high"
                     className="h-full w-full object-cover"
                   />
                   {/* Premium Shimmer Sweep Overlay */}
@@ -222,14 +226,17 @@ export function Hero() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                   </svg>
                 </a>
-                <Link
+                <a
                   href={siteConfig.resume}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Shakir_Ansari_Resume.pdf"
                   className="inline-flex items-center gap-1.5 text-[10px] font-mono text-text-secondary hover:text-text-primary transition-all border border-border-muted bg-surface-raised px-2 py-0.5 rounded shadow-3 hover:border-text-secondary/40 active:scale-95"
                   aria-label="Download Resume"
                 >
                   <DownloadIcon className="h-3 w-3" />
                   <span>Resume</span>
-                </Link>
+                </a>
               </div>
             </FadeIn>
 

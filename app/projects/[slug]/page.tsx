@@ -204,6 +204,7 @@ export default async function ProjectPage({ params }: Props) {
                     src={shot.src}
                     alt={shot.alt}
                     loading="lazy"
+                    decoding="async"
                     className="aspect-[16/10] w-full object-cover"
                   />
                 </div>

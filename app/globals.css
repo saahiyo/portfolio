@@ -61,7 +61,7 @@
   --surface-strong: #ffffff;
   --text-primary: #ffffff;
   --text-secondary: #8f8f8f;
-  --text-tertiary: #666666;
+  --text-tertiary: #999999;
   --border-muted: rgba(255, 255, 255, 0.04);
   --focus-ring: #ffffff;
   --surface: #0d0d0d;
@@ -88,7 +88,7 @@
   --surface-strong: #171717;
   --text-primary: #171717;
   --text-secondary: #4d4d4d;
-  --text-tertiary: #8f8f8f;
+  --text-tertiary: #595959;
   --border-muted: rgba(0, 0, 0, 0.06);
   --focus-ring: #006bff;
   --surface: #ffffff;

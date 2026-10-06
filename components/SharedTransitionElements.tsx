@@ -50,6 +50,7 @@ export function SharedImage({
           <img
             src={resolvedSrc}
             alt={alt}
+            decoding="async"
             className="w-full h-full object-cover"
           />
         ) : (

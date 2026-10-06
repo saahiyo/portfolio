@@ -7,16 +7,16 @@ export async function GET() {
   try {
     const res = await fetch(
       `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`,
-      { cache: "no-store" }
+      { cache: "no-store", signal: AbortSignal.timeout(3000) }
     );
 
     if (!res.ok) {
-      return NextResponse.json({ count: null }, { status: 502 });
+      return NextResponse.json({ count: null });
     }
 
     const data = await res.json();
-    return NextResponse.json({ count: data.count || 0 });
+    return NextResponse.json({ count: data.count || null });
   } catch {
-    return NextResponse.json({ count: null }, { status: 502 });
+    return NextResponse.json({ count: null });
   }
 }
