@@ -8,6 +8,7 @@ import { Container } from "@/components/Container";
 import {
   GitHubIcon,
   LinkedInIcon,
+  XIcon,
   DownloadIcon,
 } from "@/components/Icons";
 import { TextMorph } from "@/components/TextMorph";
@@ -208,6 +209,15 @@ export function Hero() {
                   aria-label="LinkedIn"
                 >
                   <LinkedInIcon className="h-5 w-5" />
+                </Link>
+                <Link
+                  href={siteConfig.x}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-secondary hover:text-text-primary transition-colors"
+                  aria-label="X (Twitter)"
+                >
+                  <XIcon className="h-4.5 w-4.5" />
                 </Link>
                 <a
                   href={`mailto:${siteConfig.email}`}

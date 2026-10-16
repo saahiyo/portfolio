@@ -8,7 +8,7 @@ import { FadeIn, StaggerContainer } from "@/components/Animate";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Shakir Ansari — email, GitHub, and LinkedIn channels.",
+    "Get in touch with Shakir Ansari — email, GitHub, LinkedIn, and X channels.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact · Shakir Ansari",

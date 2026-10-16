@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: ["/opengraph-image"],
-    creator: "@saahiyo",
+    creator: "@Saahiyo75",
   },
   robots: {
     index: true,
@@ -108,7 +108,7 @@ const jsonLd = {
   jobTitle: siteConfig.role,
   description: siteConfig.description,
   email: `mailto:${siteConfig.email}`,
-  sameAs: [siteConfig.github, siteConfig.linkedin],
+  sameAs: [siteConfig.github, siteConfig.linkedin, siteConfig.x],
   knowsAbout: [
     "Full-Stack Development",
     "Backend Systems",

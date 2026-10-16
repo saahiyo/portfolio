@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/Icons";
+import { GitHubIcon, LinkedInIcon, XIcon, MailIcon } from "@/components/Icons";
 import { WavePath } from "@/components/ui/wave-path";
 
 export function Footer() {
@@ -40,6 +40,15 @@ export function Footer() {
               className="inline-flex h-7 w-7 items-center justify-center rounded border border-border-muted bg-surface-raised text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
             >
               <LinkedInIcon className="h-3.5 w-3.5" />
+            </Link>
+            <Link
+              href={siteConfig.x}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+              className="inline-flex h-7 w-7 items-center justify-center rounded border border-border-muted bg-surface-raised text-text-secondary shadow-3 transition-all duration-fast hover:border-text-secondary/40 hover:text-text-primary active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-text-primary"
+            >
+              <XIcon className="h-3 w-3" />
             </Link>
             <Link
               href={`mailto:${siteConfig.email}`}

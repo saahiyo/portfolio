@@ -114,7 +114,7 @@ export default function NotFound() {
                 Get in Touch
               </h3>
               <p className="mt-1 text-[11px] text-text-secondary line-clamp-2">
-                Drop an email, say hi on GitHub, or connect on LinkedIn.
+                Drop an email, say hi on GitHub, or connect on LinkedIn & X.
               </p>
             </Link>
           </div>

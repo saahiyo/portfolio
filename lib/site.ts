@@ -8,6 +8,8 @@ export const siteConfig = {
   email: "shakir.ansarii075@gmail.com",
   github: "https://github.com/saahiyo",
   linkedin: "https://www.linkedin.com/in/shakir-ansari-362784296",
+  x: "https://x.com/Saahiyo75",
+  twitter: "https://x.com/Saahiyo75",
   resume: "/resume.pdf",
   locale: "en_US",
   nav: [

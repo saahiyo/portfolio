@@ -142,6 +142,20 @@ export function Contact() {
                 </div>
                 <ArrowUpRightIcon className="h-4 w-4 text-text-secondary transition-colors duration-fast group-hover:text-text-primary" />
               </Link>
+
+              {/* X (formerly Twitter) */}
+              <Link
+                href={siteConfig.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between px-6 sm:px-8 py-4 transition-all duration-fast hover:bg-black/[0.015] dark:hover:bg-white/[0.015] group"
+              >
+                <div>
+                  <span className="block text-xs font-semibold text-text-primary">X (Twitter)</span>
+                  <span className="block text-xs text-text-secondary">Follow updates, engineering & discussions</span>
+                </div>
+                <ArrowUpRightIcon className="h-4 w-4 text-text-secondary transition-colors duration-fast group-hover:text-text-primary" />
+              </Link>
             </div>
 
             {/* Bottom Availability Status */}
