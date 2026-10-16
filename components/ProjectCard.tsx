@@ -58,7 +58,7 @@ export function ProjectCard({ project }: { project: Project }) {
               src={resolvedSrc}
               alt={`${project.name} preview`}
               fill
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               loading="lazy"
               unoptimized={typeof resolvedSrc === "string" && resolvedSrc.endsWith(".svg")}
               className="object-cover transition-transform duration-fast group-hover:scale-[1.02]"
@@ -136,7 +136,7 @@ export function ProjectCard({ project }: { project: Project }) {
             </div>
           </div>
 
-          <p className="text-text-secondary text-[12.5px] sm:text-[13px] leading-relaxed mb-4 max-w-[22rem] line-clamp-3">
+          <p className="text-text-secondary text-[13px] leading-relaxed mb-4 line-clamp-3">
             {project.summary}
           </p>
         </div>
