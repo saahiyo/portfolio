@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useState, useEffect, ViewTransition } from "react";
+import Image from "next/image";
 
 function useTheme() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
@@ -47,11 +48,14 @@ export function SharedImage({
     <ViewTransition name={`project-image-${slug}`}>
       <div className="relative w-full aspect-video flex items-center justify-center bg-zinc-950/40 text-text-tertiary select-none overflow-hidden">
         {resolvedSrc ? (
-          <img
+          <Image
             src={resolvedSrc}
             alt={alt}
-            decoding="async"
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 800px"
+            priority
+            unoptimized={typeof resolvedSrc === "string" && resolvedSrc.endsWith(".svg")}
+            className="object-cover"
           />
         ) : (
           <>

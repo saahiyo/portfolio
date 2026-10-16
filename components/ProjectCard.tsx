@@ -3,6 +3,7 @@
 
 import { useState, useEffect, ViewTransition } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Project } from "@/lib/projects";
 import { GitHubIcon, ExternalLinkIcon, ArrowUpRightIcon } from "@/components/Icons";
 
@@ -53,12 +54,14 @@ export function ProjectCard({ project }: { project: Project }) {
       >
         <ViewTransition name={`project-image-${project.slug}`}>
           {resolvedSrc ? (
-            <img
+            <Image
               src={resolvedSrc}
               alt={`${project.name} preview`}
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
               loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover transition-transform duration-fast group-hover:scale-[1.02]"
+              unoptimized={typeof resolvedSrc === "string" && resolvedSrc.endsWith(".svg")}
+              className="object-cover transition-transform duration-fast group-hover:scale-[1.02]"
             />
           ) : (
             <div className="relative w-full h-full flex flex-col items-center justify-center bg-zinc-950/40 text-text-tertiary select-none">

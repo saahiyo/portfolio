@@ -15,8 +15,22 @@ export async function GET() {
     }
 
     const data = await res.json();
-    return NextResponse.json({ count: data.count || null });
+    return NextResponse.json(
+      { count: data.count || null },
+      {
+        headers: {
+          "Cache-Control": "private, no-cache, no-store, must-revalidate",
+        },
+      }
+    );
   } catch {
-    return NextResponse.json({ count: null });
+    return NextResponse.json(
+      { count: null },
+      {
+        headers: {
+          "Cache-Control": "private, no-cache, no-store, must-revalidate",
+        },
+      }
+    );
   }
 }

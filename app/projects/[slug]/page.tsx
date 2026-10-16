@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects, getProjectBySlug } from "@/lib/projects";
 import { siteConfig } from "@/lib/site";
@@ -199,13 +200,15 @@ export default async function ProjectPage({ params }: Props) {
           <div className="grid gap-5 sm:grid-cols-2">
             {project.screenshots.map((shot) => (
               <figure key={shot.src}>
-                <div className="overflow-hidden rounded-xl border border-border-muted bg-background">
-                  <img
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-border-muted bg-background">
+                  <Image
                     src={shot.src}
                     alt={shot.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
                     loading="lazy"
-                    decoding="async"
-                    className="aspect-[16/10] w-full object-cover"
+                    unoptimized={shot.src.endsWith(".svg")}
+                    className="object-cover"
                   />
                 </div>
                 <figcaption className="mt-2 text-[10px] text-text-tertiary">

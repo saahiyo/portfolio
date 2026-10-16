@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site";
 import { Container } from "@/components/Container";
 import {
@@ -79,13 +80,13 @@ export function Hero() {
             <div>
               <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
                 <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-border-muted bg-surface-raised shadow-3">
-                  <img
-                    src="https://github.com/saahiyo.png?size=160"
+                  <Image
+                    src="/avatar.png"
                     alt="Shakir Ansari Avatar"
                     width={80}
                     height={80}
-                    decoding="async"
-                    fetchPriority="high"
+                    priority
+                    sizes="80px"
                     className="h-full w-full object-cover"
                   />
                   {/* Premium Shimmer Sweep Overlay */}

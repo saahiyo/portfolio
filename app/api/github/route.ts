@@ -17,12 +17,26 @@ export async function GET() {
     }
 
     const data = await res.json();
-    return NextResponse.json({
-      followers: data.followers ?? null,
-      following: data.following ?? null,
-      repos: data.public_repos ?? null,
-    });
+    return NextResponse.json(
+      {
+        followers: data.followers ?? null,
+        following: data.following ?? null,
+        repos: data.public_repos ?? null,
+      },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        },
+      }
+    );
   } catch {
-    return NextResponse.json({ followers: null, following: null, repos: null });
+    return NextResponse.json(
+      { followers: null, following: null, repos: null },
+      {
+        headers: {
+          "Cache-Control": "public, s-maxage=300",
+        },
+      }
+    );
   }
 }

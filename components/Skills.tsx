@@ -8,23 +8,23 @@ type Skill = {
 };
 
 const skills: Skill[] = [
-  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
-  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
-  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
-  { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
-  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" },
-  { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" },
-  { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" },
-  { name: "Flask", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" },
-  { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" },
-  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-  { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
-  { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
-  { name: "Docker", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" },
-  { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" },
-  { name: "Nginx", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg" },
-  { name: "Cloudflare", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cloudflare/cloudflare-original.svg" }
+  { name: "React", icon: "/icons/skills/react.svg" },
+  { name: "Next.js", icon: "/icons/skills/nextjs.svg" },
+  { name: "TypeScript", icon: "/icons/skills/typescript.svg" },
+  { name: "Tailwind CSS", icon: "/icons/skills/tailwindcss.svg" },
+  { name: "JavaScript", icon: "/icons/skills/javascript.svg" },
+  { name: "Node.js", icon: "/icons/skills/nodejs.svg" },
+  { name: "Express.js", icon: "/icons/skills/express.svg" },
+  { name: "Python", icon: "/icons/skills/python.svg" },
+  { name: "Flask", icon: "/icons/skills/flask.svg" },
+  { name: "MySQL", icon: "/icons/skills/mysql.svg" },
+  { name: "MongoDB", icon: "/icons/skills/mongodb.svg" },
+  { name: "Firebase", icon: "/icons/skills/firebase.svg" },
+  { name: "AWS", icon: "/icons/skills/aws.svg" },
+  { name: "Docker", icon: "/icons/skills/docker.svg" },
+  { name: "Linux", icon: "/icons/skills/linux.svg" },
+  { name: "Nginx", icon: "/icons/skills/nginx.svg" },
+  { name: "Cloudflare", icon: "/icons/skills/cloudflare.svg" }
 ];
 
 export function Skills() {
@@ -48,8 +48,11 @@ export function Skills() {
                   <img
                     src={skill.icon}
                     alt={skill.name}
+                    width={32}
+                    height={32}
                     className="h-full w-full object-contain filter dark:brightness-95"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 {/* Tooltip */}
