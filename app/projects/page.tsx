@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
 
   return (
-    <div className="pt-28 pb-24">
+    <div className="pt-28 pb-8 sm:pb-16">
       <Container>
         <StaggerContainer delayChildren={0.1} staggerDelay={0.06}>
           <FadeIn direction="up" distance={15}>

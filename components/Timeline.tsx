@@ -55,7 +55,7 @@ export function Timeline() {
   return (
     <section
       id="experience"
-      className="scroll-mt-24 border-t border-border-muted py-20 sm:py-28"
+      className="scroll-mt-24 border-t border-border-muted py-14 sm:py-24"
     >
       <Container>
         <FadeIn direction="up">

@@ -87,7 +87,7 @@ export default async function ProjectPage({ params }: Props) {
   const prev = projects[(idx - 1 + projects.length) % projects.length];
 
   return (
-    <article className="pt-28 pb-24">
+    <article className="pt-28 pb-8 sm:pb-16">
       <Container>
         <StaggerContainer delayChildren={0.1} staggerDelay={0.06}>
           <FadeIn direction="up" distance={15}>

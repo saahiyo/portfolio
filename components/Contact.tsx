@@ -54,7 +54,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 border-t border-border-muted py-20 sm:py-24">
+    <section id="contact" className="scroll-mt-24 border-t border-border-muted py-14 sm:py-24">
       <Container>
         {/* Let's Work Together Heading */}
         <div className="mb-10 sm:mb-12 text-center">

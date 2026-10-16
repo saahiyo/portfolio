@@ -7,9 +7,9 @@ import { WavePath } from "@/components/ui/wave-path";
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="py-8">
+    <footer className="pt-2 pb-8 sm:py-8">
       <Container>
-        <WavePath className="w-full text-border-muted mb-6" />
+        <WavePath className="w-full text-border-muted mb-5 sm:mb-6" />
         
         {/* Row 1: Logo & Name on the left, Social Links on the right */}
         <div className="flex items-center justify-between w-full gap-4">

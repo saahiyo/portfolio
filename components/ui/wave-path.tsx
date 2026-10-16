@@ -91,7 +91,7 @@ export function WavePath({ className, ...props }: WWavePathProps) {
         onMouseEnter={manageMouseEnter}
         onMouseMove={manageMouseMove}
         onMouseLeave={manageMouseLeave}
-        className="relative -top-5 z-10 h-10 w-full hover:-top-[150px] hover:h-[300px] cursor-pointer"
+        className="absolute inset-x-0 -top-5 z-10 h-10 w-full hover:-top-[150px] hover:h-[300px] cursor-pointer"
       />
       <svg className="pointer-events-none absolute -top-[100px] h-[300px] w-full">
         <path ref={path} className="fill-none stroke-current" strokeWidth={1.5} />
